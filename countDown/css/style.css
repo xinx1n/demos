@@ -1,5 +1,5 @@
 * {
-    font-family: monospace, sans-serif;
+    font-family: Tahoma, sans-serif,monospace;
     margin: 0;
     padding: 0;
 }
@@ -16,10 +16,12 @@
 .wrapper>.time-wrapper {
     color: white;
     margin: 0 auto;
-    text-align: center;
-    font-size: 60px;
+    font-size: 0;
 }
-
+.wrapper>.time-wrapper>span{
+    font-size: 60px;
+    padding: 0 14px;
+}
 .wrapper>.time-wrapper>.times {
     width: 1.3em;
     text-align: center;
@@ -32,14 +34,14 @@
 }
 .wrapper>.tip-wrapper{
     text-align: left;
-    padding-left:82px;
+    padding-left:83px;
 }
 .wrapper>.tip-wrapper>.tip{
     color: #446387;
-    margin: 0 31px;
+    margin: 0 33px;
 }
 .wrapper>.tip-wrapper>.tip:nth-child(3){
-    margin-left: 19px;
+    margin-left: 23px;
 }
 .wrapper>.button {
     outline:none;
