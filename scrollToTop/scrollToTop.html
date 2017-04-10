@@ -129,7 +129,8 @@
         var height = window.scrollY // 1000
         var n = 1
         var id = setInterval(function() {
-            if (document.documentElement.scrollTop === 0) {
+            var toTop = document.body.scrollTop||document.documentElement.scrollTop
+            if (toTop === 0) {
                 console.log('a')
                 clearInterval(id)
 
