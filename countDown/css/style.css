@@ -1,0 +1,59 @@
+* {
+    font-family: monospace, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 530px;
+    height: 360px;
+    background: #2D4157;
+    margin: 90px auto;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.wrapper>.time-wrapper {
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 60px;
+}
+
+.wrapper>.time-wrapper>.times {
+    width: 1.3em;
+    text-align: center;
+    background: #2D4157;
+    color: white;
+    border-style: none;
+    font-size: 60px;
+    line-height: 1em;
+    padding: 0;
+}
+.wrapper>.tip-wrapper{
+    text-align: left;
+    padding-left:82px;
+}
+.wrapper>.tip-wrapper>.tip{
+    color: #446387;
+    margin: 0 31px;
+}
+.wrapper>.tip-wrapper>.tip:nth-child(3){
+    margin-left: 19px;
+}
+.wrapper>.button {
+    width: 338px;
+    height: 54px;
+    cursor: pointer;
+    color: white;
+    background: #2D4157;
+    border: 1px solid #35EDC2;
+    border-radius: 54px;
+    font-size: 34px;
+    line-height: 1em;
+    margin-top: 60px;
+}
+
+.wrapper>.button:hover {
+    background: #35EDC2;
+}
