@@ -25,7 +25,7 @@ function changeHand(deg,oo){
         oo.transition='all 0s'
         oo.transform = `rotate(${deg}deg)`
     }else{
-        oo.transition='all 0.1s'
+        oo.transition='all 0.3s cubic-bezier(.04, 1.8, .66, .8)'
         oo.transform = `rotate(${deg}deg)`
     }
 

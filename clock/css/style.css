@@ -1,4 +1,3 @@
-
 body {
     background: radial-gradient(circle, #EEEFE7, #797371);
     height: 100vh;
@@ -18,15 +17,16 @@ body {
     box-shadow: 0 20px 30px 1px #545454;
 }
 
-.clock>.hand-wrapper{
+.clock>.hand-wrapper {
     filter: drop-shadow(4px 4px 2px #888888);
     height: 100%;
- }   
+}
+
 .clock>.hand-wrapper>.hand {
-    transition: all 0.1s;
+    transition: all 0.3s cubic-bezier(.04, 1.8, .66, .8);
     position: absolute;
     left: 50%;
-   border-radius: 3px;
+    border-radius: 3px;
 }
 
 .clock>.hand-wrapper>.second-hand {
@@ -66,12 +66,14 @@ body {
     transform: translate(-50%, -50%);
     border-radius: 50%;
     background: white;
-     /*box-shadow:0 -2px 4px #242323 inset;*/
+    /*box-shadow:0 -2px 4px #242323 inset;*/
     box-shadow: 0 -4px 7px #242323 inset;
 }
 
+
 /*number*/
-.clock>.number-wrapper>div{
+
+.clock>.number-wrapper>div {
     color: #82827E;
     position: absolute;
     width: 40px;
@@ -80,19 +82,23 @@ body {
     text-align: center;
     font-size: 32px;
 }
-.clock>.number-wrapper>.number12{
+
+.clock>.number-wrapper>.number12 {
     top: 15px;
     left: 180px;
 }
-.clock>.number-wrapper>.number3{
+
+.clock>.number-wrapper>.number3 {
     right: 15px;
     top: 180px;
 }
-.clock>.number-wrapper>.number6{
+
+.clock>.number-wrapper>.number6 {
     bottom: 15px;
     left: 180px;
 }
-.clock>.number-wrapper>.number9{
+
+.clock>.number-wrapper>.number9 {
     left: 15px;
     top: 180px;
 }
