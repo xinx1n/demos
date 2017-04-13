@@ -1,5 +1,5 @@
 body {
-    background: radial-gradient(circle, #EEEFE7, #797371);
+    background: radial-gradient(circle at 50% 0, #EEEFE7, #94908D );
     height: 100vh;
     margin: 0;
     display: flex;
