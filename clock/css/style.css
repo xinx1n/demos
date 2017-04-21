@@ -51,7 +51,6 @@ body {
 .wrapper>.clock>.hand-wrapper {
     filter: drop-shadow(4px 4px 1px #888888);
     height: 100%;
-    position: static;
 }
 
 .wrapper>.clock>.hand-wrapper>.hand {
