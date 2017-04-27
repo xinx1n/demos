@@ -9,9 +9,9 @@ function step() {
     var minuteDeg = (minute * 60 + second) / 3600 * 360
     var hourDeg = (hour * 3600 + minute * 60 + second) / (12 * 3600) * 360
 
-    var ss = document.querySelector('.second-hand').style 
-    var ms = document.querySelector('.minute-hand').style 
-    var hs = document.querySelector('.hour-hand').style 
+    var ss = document.querySelector('.second-hand')
+    var ms = document.querySelector('.minute-hand')
+    var hs = document.querySelector('.hour-hand') 
     changeHand(secondDeg,ss)
     changeHand(minuteDeg,ms)
     changeHand(hourDeg,hs)
@@ -22,11 +22,13 @@ setInterval(function() {
 }, 1000)
 function changeHand(deg,oo){
     if(deg===0){
-        oo.transition='all 0s'
-        oo.transform = `rotate(${deg}deg)`
+        oo.style.transition='all 0s'
+        oo.style.transform = `rotate(${deg}deg)`
+        setTimeout(function () {
+            oo.style.transition='all 0.3s cubic-bezier(.04, 1.8, .66, .8)'
+        }, 1)
     }else{
-        oo.transition='all 0.3s cubic-bezier(.04, 1.8, .66, .8)'
-        oo.transform = `rotate(${deg}deg)`
+        oo.style.transform = `rotate(${deg}deg)`
     }
 
 }
