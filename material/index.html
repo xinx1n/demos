@@ -1,0 +1,147 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="zh-Hans"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="zh-Hans"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="zh-Hans"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="zh-Hans">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Material Design</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic,500,500italic,700,700italic|Roboto:400,400italic,500,500italic,700,700italic|Material+Icons">
+    <!--
+    <link rel="stylesheet" href="css/normalize.min.css">
+    -->
+    <link href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdn.bootcss.com/vue/2.3.2/vue.min.js"></script>
+    <!--[if lt IE 9]>
+            <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+            <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="header-container">
+        <header class="wrapper clearfix">
+            <h1 class="title text-middle">
+                <a href="#" id="title-link">
+                    <span>
+                        <span class="js-dot">Google</span>
+                        <span class="js-return">Design</span>
+                    </span>
+                </a>
+            </h1>
+            <nav>
+                <ul>
+                    <li><a href="#resources">resources</a></li>
+                    <li><a href="#articles">articles</a></li>
+                    <li><a href="#footer">jobs</a></li>
+                    <li><a href="#footer">about</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <div class="header-fade">
+        <div class="header-fade-text wrapper">
+            <span class="ori">Google Design</span>
+        </div>
+    </div>
+    <!-- Resources -->
+    <div class="resources-container">
+        <!-- Swiper -->
+        <div class="swiper-container main-wrapper mhover" id="resources">
+            <div class="parallax-bg" style="background-image:url(http://omh8xg82p.bkt.clouddn.com/17-5-9/88790463-file_1494321514138_b3e8.png)" data-swiper-parallax="-23%"></div>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="title text-big" data-swiper-parallax="-100">Material.io</div>
+                    <div class="text" data-swiper-parallax="-700">
+                        <p>Welcome to the new home for Material Design.</p>
+                    </div>
+                    <div class="subtitle text-middle" data-swiper-parallax="-400">
+                        <a class="_link" href="http://material.io" target="_blank">Learn more</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="title text-big" data-swiper-parallax="-100">Google Fonts</div>
+                    <div class="text" data-swiper-parallax="-700">
+                        <p>Making the web more beautiful, fast, and open through great typography.</p>
+                    </div>
+                    <div class="subtitle text-middle" data-swiper-parallax="-400">
+                        <a class="_link" href="https://fonts.google.com/" target="_blank">Browse the Directory</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="title text-big" data-swiper-parallax="-100">Resizer</div>
+                    <div class="text" data-swiper-parallax="-700">
+                        <p>An interactive viewer that helps designers test material design breakpoints across desktop, mobile, and tablet.</p>
+                    </div>
+                    <div class="subtitle text-middle" data-swiper-parallax="-400">
+                        <a class="_link" href="https://g.co/design/resizer" target="_blank">Launch Resizer</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination swiper-pagination-white"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-button-next swiper-button-white"></div>
+        </div>
+        <!-- Swiper End-->
+    </div>
+    <!-- Resources End-->
+    <!-- Articles -->
+    <div class="articles-container" id="articles"> 
+        <div class="main-wrapper clearfix">
+            <ul>
+                <li v-for="article in articles" class="article-container mhover">
+                    <a :href="article.link" :class="article.id + ' article-link'" target="_blank">
+                        <div  :class="article.id + ' article-bg'" :data-src="article.src" ></div>
+                        <div class="article-info">
+                            <div class="article-head">
+                                <h1 class="text-middle">
+                                    <span class="ori">{{article.title}}</span>
+                                </h1>
+                                <p>{{article.description}}</p>
+                            </div>
+                            <div class="article-foot">
+                                <p> {{article.tag}} <span class="article-goto"> </span> </p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Articles End -->
+    
+    <div class="footer-container" id="footer">
+        <div class="footer-sep"></div>
+        <footer class="footer-wrapper">
+            <div class="main-wrapper">
+                <span class="ori">Keep Design</span>
+            </div>
+        </footer>
+    </div>
+    <div class="gototop" id="gototop">
+        
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script> window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>') </script>
+    <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+    <script> window.Swiper ||  document.write('<script src="js/vendor/swiper-3.4.2.jquery.min.js"><\/script>') </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
