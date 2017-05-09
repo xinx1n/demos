@@ -19,7 +19,7 @@ body {
 
 @media (max-width: 800px) {
     .main-wrapper {
-        width: 99%;
+        width: 100%;
     }
 }
 
