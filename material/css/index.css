@@ -244,6 +244,11 @@ li.article-container>.article-link {
 li.article-container:nth-child(3n)>.article-link {
     padding-bottom: 50%;
 }
+@media (max-width: 790px) {
+    li.article-container:nth-child(3n)>.article-link{
+        padding-bottom: 100%;
+    }
+}
 
 li.article-container>.article-link>.article-bg {
     position: absolute;
