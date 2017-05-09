@@ -129,20 +129,7 @@
 
 
      // 给标题添加 · 和 ¬
-     let $spanOri = $('span.ori')
-     $spanOri.each(function () {
-         let textArr = $(this).text().trim(' ').split(' ')
-         let jsDotStr
-         let jsReturnStr = `<span class="js-return">${textArr.pop()}</span>`
-         if(textArr.length>0){
-             jsDotStr = textArr.map(function(elem, index) {
-                 return `<span class="js-dot">${elem}</span> `
-             }).join(' ')
-         }
-         $('<span></span>').append($(jsDotStr+' '+jsReturnStr)).insertAfter($(this))
-         $(this).remove()
-
-     })
+     formatSrt()
      // 锚链接平滑滚动
      $('a[href*=#]').click(function(event) {
          var targetId = $(this).attr('href').replace(/\w+.html/,'')
@@ -231,3 +218,20 @@
     let toTop = $(window).scrollTop()
     $('#gototop').css('transform',`translateX(${toTop>300?'0':'42px'})`)
  }
+function formatSrt () {
+    // 给标题添加 · 和 ¬
+    let $spanOri = $('span.ori')
+    $spanOri.each(function () {
+        let textArr = $(this).text().trim(' ').split(' ')
+        let jsDotStr
+        let jsReturnStr = `<span class="js-return">${textArr.pop()}</span>`
+        if(textArr.length>0){
+            jsDotStr = textArr.map(function(elem, index) {
+                return `<span class="js-dot">${elem}</span> `
+            }).join(' ')
+        }
+        $('<span></span>').append($(jsDotStr+' '+jsReturnStr)).insertAfter($(this))
+        $(this).remove()
+
+    })
+}
