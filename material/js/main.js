@@ -97,10 +97,11 @@
      $('body').on('mouseout','a',function(e) {
          clickEffect(e, 3000, true, $clickEl)
      })
-     $('body').on('click','a',function (e) {
+     $('body').on('click','a:not(.myTemp)',function (e) {
          e.preventDefault()
          setTimeout(function () {
-            window.open(e.currentTarget.href,e.currentTarget.href)
+            newWindow(e.currentTarget.href)
+            // window.open(e.currentTarget.href,e.currentTarget.href)
          },150)
      })
 
@@ -238,6 +239,18 @@
              $(this).remove()
          })
      }
+     // 新窗口打开链接，window.open 容易被拦截
+     function newWindow(url) {
+         var aEl = document.createElement('a')
+         aEl.setAttribute('href', url)
+         aEl.setAttribute('target', url)
+         aEl.setAttribute('class', 'myTemp')
+         // 防止反复添加
+         document.body.appendChild(aEl);
+         aEl.click()
+         aEl.remove()
+     }
+
 
 // declaration function end
  }); //$(); end
