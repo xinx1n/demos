@@ -97,7 +97,7 @@
      $('body').on('mouseout','a',function(e) {
          clickEffect(e, 3000, true, $clickEl)
      })
-     $('body').on('click','a:not(.myTemp)',function (e) {
+     $('body').on('click','a:not([href^=#]):not(.myTemp)',function (e) {
          e.preventDefault()
          setTimeout(function () {
             newWindow(e.currentTarget.href)
@@ -139,7 +139,7 @@
      // 给标题添加 · 和 ¬
      formatSrt()
      // 锚链接平滑滚动
-     $('a[href*=#]').click(function(event) {
+     $('a[href^=#]').click(function(event) {
          var targetId = $(this).attr('href').replace(/\w+.html/,'')
          setTimeout(function () {
              let target = $(targetId).offset().top
