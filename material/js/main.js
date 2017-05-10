@@ -85,7 +85,7 @@
      $('#gototop').on('click', function() {
          // let toTop = $(window).scrollTop()
          $("html,body").animate({scrollTop: 0}, Math.sqrt(toTop)*20)         
-     });
+     })
      /* clickEffect */
      let $clickEl;
      $('body').on('mousedown', 'a', function(e) {
@@ -93,6 +93,15 @@
      })
      $('body').on('mouseup', function(e) {
          clickEffect(e, 3000, true, $clickEl)
+     })
+     $('body').on('mouseout','a',function(e) {
+         clickEffect(e, 3000, true, $clickEl)
+     })
+     $('body').on('click','a',function (e) {
+         e.preventDefault()
+         setTimeout(function () {
+            window.open(e.currentTarget.href,e.currentTarget.href)
+         },150)
      })
 
      /* Swiper */
@@ -114,8 +123,6 @@
      $('.swiper-container').on('mouseleave',()=>{
          mySwiper.startAutoplay()
      });
-
-
      // 加载背景
      $('.article-bg').each(function() {
          let tempImage = document.createElement('img')
@@ -127,7 +134,6 @@
                  'background-image':`url(${msrc})`
             })
          }
-
      })
      // 给标题添加 · 和 ¬
      formatSrt()
@@ -178,7 +184,7 @@
          let x = e.clientX
          let y = e.clientY
          let $div = $el || $('<div data-roal="shin"></div>')
-         let transSty = $el ? 'all .1s ease-out' : 'all .2s ease-in-out'
+         let transSty = $el ? 'all .05s ease-out' : 'all .2s ease-in-out'
          if (!bl && !$el) {
              $div.css({
                  'position': 'fixed',
@@ -212,7 +218,6 @@
          }
          return $div
      }
-
      function showGoToTop(){
         // let toTop = $(window).scrollTop()
         $('#gototop').css('transform',`translateX(${toTop>300?'0':'42px'})`)
@@ -231,7 +236,6 @@
              }
              $('<span></span>').append($(jsDotStr+' '+jsReturnStr)).insertAfter($(this))
              $(this).remove()
-
          })
      }
 
