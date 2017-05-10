@@ -364,7 +364,7 @@ li.article-container>.article-link>.article-info>.article-foot .article-goto {
     z-index: -1;
 }
 
-.footer-container>.footer-wrapper>.main-wrapper {
+.footer-container>.footer-wrapper>.foot-logo {
     background: #323a45;
     height: 100%;
     display: flex;
@@ -374,10 +374,13 @@ li.article-container>.article-link>.article-info>.article-foot .article-goto {
     color: #fff;
     font-size: 40px;
 }
-.footer-container>.footer-wrapper>.footer-info {
+.footer-container>.footer-wrapper>.footer-info{
+    position: relative;
+}
+.footer-container>.footer-wrapper>.footer-info>.footer-info-author {
     position: absolute;
     bottom: 10px;
-    right: 200px;
+    right: 30px;
     color: #fff;
     font-size: 16px;
 }
@@ -399,12 +402,12 @@ li.article-container>.article-link>.article-info>.article-foot .article-goto {
     transition: all .5s ease-in-out;
     cursor: pointer;
     transform: translateX(42px);
-    background-position: -96px -244px;
+    background-position: -93.2px -244px;
     background-color: #fff;
     background-image: url('http://omh8xg82p.bkt.clouddn.com/17-5-9/72735444-file_1494322720322_15d12.png');
     z-index: 20;
 }
 .gototop:hover{
     background-color: #679edc;
-    background-position: -96px -286px;
+    background-position: -93.2px -286px;
 }
