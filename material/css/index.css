@@ -97,10 +97,8 @@ span.ori {
 
 .header-container .title {
     float: left;
-    margin: 0;
-    margin-right: 10px;
+    margin: 0 10px;
     opacity: 0;
-    padding-left: 20px;
     letter-spacing: .25px;
     height: 64px;
     line-height: 64px;
@@ -115,17 +113,21 @@ span.ori {
 
 .header-container nav ul li {
     float: left;
-    padding: 0 10px 0 0;
+    padding: 0 5px;
     height: 64px;
     line-height: 64px;
     position: relative;
 }
 
 @media (max-width: 800px) {
+    .header-container .wrapper{
+        width: 94%;
+    }
     .header-container .title {
         height: 50px;
         line-height: 50px;
         float: none;
+        margin: 0 5px;
     }
     .header-container nav {
         float: none;
@@ -139,7 +141,6 @@ span.ori {
 
 .header-container nav ul li a {
     display: block;
-    /*font-size: 14px;*/
     font-weight: 700;
 }
 
@@ -156,6 +157,10 @@ span.ori {
 
 .header-container nav ul li a:hover::after {
     width: 100%;
+}
+.header-container nav ul li a.nav-active::after {
+    width: 100%;
+    background: rgba(255, 255, 255, 1);
 }
 
 
@@ -182,7 +187,7 @@ span.ori {
     color: white;
     position: relative;
     top: 120px;
-    padding-left: 20px;
+    padding-left: 10px;
     -moz-user-select: none;
     user-select: none;
     cursor: default;
@@ -369,7 +374,19 @@ li.article-container>.article-link>.article-info>.article-foot .article-goto {
     color: #fff;
     font-size: 40px;
 }
-
+.footer-container>.footer-wrapper>.footer-info {
+    position: absolute;
+    bottom: 10px;
+    right: 200px;
+    color: #fff;
+    font-size: 16px;
+}
+.footer-container>.footer-wrapper>.footer-info a:hover{
+    color:#3E67AD;
+}
+.footer-container>.footer-wrapper>.footer-info a:hover .js-return::after {
+    color:#fff;
+}
 
 /*foot ent*/
 .gototop{

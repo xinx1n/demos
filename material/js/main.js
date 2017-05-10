@@ -71,16 +71,19 @@
  });
 //
  $(function() {
+     let toTop = $(window).scrollTop()
      changleTitle()
      $(window).on('scroll', function() {
+         toTop = $(window).scrollTop()
          changleTitle()
          showGoToTop()
+         
      })
      $(window).on('resize', function() {
          changleTitle()
      })
      $('#gototop').on('click', function() {
-         let toTop = $(window).scrollTop()
+         // let toTop = $(window).scrollTop()
          $("html,body").animate({scrollTop: 0}, Math.sqrt(toTop)*20)         
      });
      /* clickEffect */
@@ -126,112 +129,114 @@
          }
 
      })
-
-
      // 给标题添加 · 和 ¬
      formatSrt()
      // 锚链接平滑滚动
      $('a[href*=#]').click(function(event) {
          var targetId = $(this).attr('href').replace(/\w+.html/,'')
          setTimeout(function () {
-             let len = $(targetId).offset().top-65
-             $("html,body").animate({scrollTop: len}, Math.sqrt(len)*20)
+             let target = $(targetId).offset().top
+             let len = Math.abs(toTop-target)
+             $("html,body").animate({scrollTop: target-65}, Math.sqrt(len)*20)
          }, 100)
          return false
      });
+// declaration function
+     // 切换 title 
+     function changleTitle() {
+         let t1 = $('.header-container .title')
+         let t2 = $('.header-fade .header-fade-text')
+         // let toTop = $(window).scrollTop()
+         if ($(window).width() <= 800) {
+             t2.css('opacity', '0')
+             t1.css('display', 'block')
+             t1.css('opacity', '1')
+             $('.header-fade').css('height','100px')
+             $('.header-container').css('box-shadow', toTop >0 ? '0 1px 5px 1px hsla(0,0%,0%,.6)' : 'none')
+         }else{
+             $('.header-fade').css('height','256px')
+             if (toTop >= 50) {
+                 t2.css('opacity', '0')
+                 t1.css('display', 'block')
+                 t1.offset()
+                 t1.css('opacity', '1')
+             } else {
+                 t2.css('opacity', '1')
+                 t1.css('opacity', '0')
+                 t1.one('transitionend', function() {
+                     if (t1.css('opacity') === '0') {
+                         t1.css('display', 'none')
+                     }
+                 })
+             }
+         $('.header-container').css('box-shadow', toTop > 190 ? '0 1px 5px 1px hsla(0,0%,0%,.6)' : 'none')
+         }
+     }
+     // 点击特效
+     function clickEffect(e, value, bl, $el) {
+         if (bl && !$el) return
+         let x = e.clientX
+         let y = e.clientY
+         let $div = $el || $('<div data-roal="shin"></div>')
+         let transSty = $el ? 'all .1s ease-out' : 'all .2s ease-in-out'
+         if (!bl && !$el) {
+             $div.css({
+                 'position': 'fixed',
+                 'z-index': '10086',
+                 'left': x,
+                 'top': y,
+                 'transform': 'translate(-50%,-50%)',
+                 'background': 'hsla(0,100%,100%,.3)',
+                 'border-radius': '50%',
+                 'width': '0',
+                 'height': '0',
+                 'pointer-events': 'none'
+             })
+             $div.appendTo('body')
+             $div.offset()
+         }
+         $div.css({
+             'transition': transSty,
+             'width': value,
+             'height': value
+         })
+         if (bl && $el) {
+             $div.one("transitionend", function() {
+                 $div.css({
+                     'background': 'hsla(0,100%,100%,0)',
+                 })
+                 setTimeout(function() {
+                     $div.remove()
+                 }, 0)
+             })
+         }
+         return $div
+     }
 
+     function showGoToTop(){
+        // let toTop = $(window).scrollTop()
+        $('#gototop').css('transform',`translateX(${toTop>300?'0':'42px'})`)
+     }
+     function formatSrt () {
+         // 给标题添加 · 和 ¬
+         let $spanOri = $('span.ori')
+         $spanOri.each(function () {
+             let textArr = $(this).text().trim(' ').split(' ')
+             let jsDotStr
+             let jsReturnStr = `<span class="js-return">${textArr.pop()}</span>`
+             if(textArr.length>0){
+                 jsDotStr = textArr.map(function(elem, index) {
+                     return `<span class="js-dot">${elem}</span> `
+                 }).join(' ')
+             }
+             $('<span></span>').append($(jsDotStr+' '+jsReturnStr)).insertAfter($(this))
+             $(this).remove()
+
+         })
+     }
+
+// declaration function end
  }); //$(); end
 
 
 
- function changleTitle() {
-     let t1 = $('.header-container .title')
-     let t2 = $('.header-fade .header-fade-text')
-     let toTop = $(this).scrollTop()
-     if ($(window).width() <= 800) {
-         t2.css('opacity', '0')
-         t1.css('display', 'block')
-         t1.css('opacity', '1')
-         $('.header-fade').css('height','100px')
-         $('.header-container').css('box-shadow', toTop >0 ? '0 1px 5px 1px hsla(0,0%,0%,.6)' : 'none')
-     }else{
-         $('.header-fade').css('height','256px')
-         if (toTop >= 50) {
-             t2.css('opacity', '0')
-             t1.css('display', 'block')
-             t1.offset()
-             t1.css('opacity', '1')
-         } else {
-             t2.css('opacity', '1')
-             t1.css('opacity', '0')
-             t1.one('transitionend', function() {
-                 if (t1.css('opacity') === '0') {
-                     t1.css('display', 'none')
-                 }
-             })
-         }
-     $('.header-container').css('box-shadow', toTop > 190 ? '0 1px 5px 1px hsla(0,0%,0%,.6)' : 'none')
-     }
- }
-
- function clickEffect(e, value, bl, $el) {
-     if (bl && !$el) return
-     let x = e.clientX
-     let y = e.clientY
-     let $div = $el || $('<div data-roal="shin"></div>')
-     let transSty = $el ? 'all .1s ease-out' : 'all .2s ease-in-out'
-     if (!bl && !$el) {
-         $div.css({
-             'position': 'fixed',
-             'z-index': '10086',
-             'left': x,
-             'top': y,
-             'transform': 'translate(-50%,-50%)',
-             'background': 'hsla(0,100%,100%,.3)',
-             'border-radius': '50%',
-             'width': '0',
-             'height': '0',
-             'pointer-events': 'none'
-         })
-         $div.appendTo('body')
-         $div.offset()
-     }
-     $div.css({
-         'transition': transSty,
-         'width': value,
-         'height': value
-     })
-     if (bl && $el) {
-         $div.one("transitionend", function() {
-             $div.css({
-                 'background': 'hsla(0,100%,100%,0)',
-             })
-             setTimeout(function() {
-                 $div.remove()
-             }, 0)
-         })
-     }
-     return $div
- }
-
- function showGoToTop(){
-    let toTop = $(window).scrollTop()
-    $('#gototop').css('transform',`translateX(${toTop>300?'0':'42px'})`)
- }
-function formatSrt () {
-    // 给标题添加 · 和 ¬
-    let $spanOri = $('span.ori')
-    $spanOri.each(function () {
-        let textArr = $(this).text().trim(' ').split(' ')
-        let jsDotStr
-        let jsReturnStr = `<span class="js-return">${textArr.pop()}</span>`
-        if(textArr.length>0){
-            jsDotStr = textArr.map(function(elem, index) {
-                return `<span class="js-dot">${elem}</span> `
-            }).join(' ')
-        }
-        $('<span></span>').append($(jsDotStr+' '+jsReturnStr)).insertAfter($(this))
-        $(this).remove()
-
-    })
-}
