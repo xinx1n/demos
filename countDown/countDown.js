@@ -47,6 +47,8 @@ Array.prototype.forEach.call(timeNodes, function(ele) {
     })
 })
 
+document.getElementById('second').focus()
+
 function timer(seconds) {
     id = setInterval(function() {
         if (seconds <= 0) {
