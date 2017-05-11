@@ -197,7 +197,8 @@
                  'border-radius': '50%',
                  'width': '0',
                  'height': '0',
-                 'pointer-events': 'none'
+                 'pointer-events': 'none',
+                 'filter':'brightness(1.9)'
              })
              $div.appendTo('body')
              $div.offset()
