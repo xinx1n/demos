@@ -246,7 +246,6 @@
          aEl.setAttribute('href', url)
          aEl.setAttribute('target', url)
          aEl.setAttribute('class', 'myTemp')
-         // 防止反复添加
          document.body.appendChild(aEl);
          aEl.click()
          aEl.remove()
