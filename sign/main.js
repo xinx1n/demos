@@ -22,16 +22,22 @@ Array.prototype.forEach.call(allInput, function(element, index) {
         let inputGroup = targetEl.closest('.input-group')
         let line2 = inputGroup.children[2]
         line2.style.transform = 'scaleX(0)'
+        addFilled(targetEl)
     })
     element.addEventListener('change', function(e) {
         let targetEl = e.target
-        if (targetEl.value !== '') {
-            targetEl.classList.add('filled')
-        } else {
-            targetEl.classList.remove('filled')
-        }
+        addFilled(targetEl)
     })
+    addFilled(element)
 });
+
+function addFilled (element) {
+    if (element.value !== '') {
+        element.classList.add('filled')
+    } else {
+        element.classList.remove('filled')
+    }
+}
 
 
 // var myinput = document.getElementById('myinput')
