@@ -8,6 +8,9 @@
     <title>sign</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic,500,500italic,700,700italic|Roboto:400,400italic,500,500italic,700,700italic|Material+Icons">
     <style>
+    *,*::after,*::before{
+        box-sizing: border-box;
+    }
     body,p{
     	margin: 0;
     }
@@ -145,15 +148,20 @@
 	.sign-container>.sign-wrapper>.sign-main>.submit-container>button[type=submit]{
 		outline: none;
 		border: none;
-		padding: 6px 20px;
-		background: #4285f4;
-		color: #ffffff;
-		border-radius: 2px;
-		font-size: 16px;
-		vertical-align: top;
-		cursor: pointer;
-		box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
-	}
+		padding: 0 20px;
+        height: 36px;
+        line-height: 36px;
+        background-color: #2A56C6;
+        color: #ffffff;
+        border-radius: 2px;
+        font-size: 16px;
+        vertical-align: top;
+        cursor: pointer;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    }
+    .sign-container>.sign-wrapper>.sign-main>.submit-container>button[type=submit]:hover{
+		background-color: #3E7EEA;
+    }
     </style>
 </head>
 
