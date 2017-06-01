@@ -1,30 +1,24 @@
 var button = document.querySelector('#start')
 var timeNodes = document.querySelectorAll('.times')
+var hour = document.getElementById('hour')
+var minute = document.getElementById('minute')
+var second = document.getElementById('second')
 var id = null
-
-function myglobal(status, time) {
-    changeStatus = function() {
-        status = !status
-    }
-    changeTime = function(newb) {
-        time = newb
-    }
-    return function() {
-        return [status, time]
-    }
+var mytime = {
+    status:true,
+    time:7200
 }
-var getS = myglobal(true, 7200)
 button.addEventListener('click', function() {
-    if (getS()[0] === true) {
-        timer(getS()[1])
-        changeStatus()
+    if (mytime.status === true) {
+        timer(mytime.time)
+        mytime.status = false
         button.innerText = 'PAUSE'
         for (var item of timeNodes) {
             item.disabled = true
         }
     } else {
         clearInterval(id)
-        changeStatus()
+        mytime.status = true
         button.innerText = 'CONTINUE'
         for (var item of timeNodes) {
             item.disabled = false
@@ -40,22 +34,27 @@ Array.prototype.forEach.call(timeNodes, function(ele) {
         button.innerText = 'START'
         var result = timeToSecond(timeNodes[0].value, timeNodes[1].value, timeNodes[2].value)
         var results = timeFormat(result)
-        changeTime(result)
+        mytime.time = result
         hour.value = results[0]
         minute.value = results[1]
         second.value = results[2]
     })
 })
 
-document.getElementById('second').focus()
+window.onload = function () {
+    document.getElementById('second').focus()
+    mytime.time = timeToSecond(hour.value, minute.value, second.value)
+}
 
+
+//计时函数
 function timer(seconds) {
     id = setInterval(function() {
         if (seconds <= 0) {
             clearInterval(id)
         }
         seconds--
-        changeTime(seconds)
+        mytime.time = seconds
             // timeLeft.innerText = timeFormat(seconds)
         var times = timeFormat(seconds)
         hour.value = times[0]
