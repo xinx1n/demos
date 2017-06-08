@@ -128,7 +128,7 @@ q:after {
   content: '';
 }
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 ins,
 a {
