@@ -29,10 +29,10 @@
 		 	loadBackgrImg(els1)
 		 	setTimeout(function() {
 		 		loadBackgrImg(els2)
-		 	},1000)
+		 	},500)
 		 	setTimeout(function() {
 		 		loadBackgrImg(els3)
-		 	},2000)
+		 	},800)
 		 	//头条滚动
 		 	var scrollEl = document.querySelectorAll('.horizontal-container>.horizontal-view')
 		 	var scrollContainer = document.querySelector('.horizontal-container')
