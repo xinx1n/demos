@@ -10,9 +10,9 @@
 		        autoplay: 3000,
 		}
 	    var swiper = new Swiper('.swiper-container', myoptions);
-	    window.onresize = function () {
-			window.location.reload()
-	 	}
+	  //   window.onresize = function () {
+			// window.location.reload()
+	 	// }
 	 	//加载背景图
 	 	function loadBackgrImg (els) {
 	 		Array.prototype.forEach.call(els,function (el) {
