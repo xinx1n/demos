@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://gw.alicdn.com/tps/i2/TB1nmqyFFXXXXcQbFXXE5jB3XXX-114-114.png" rel="apple-touch-icon-precomposed">
+    <link href="https://gw.alicdn.com/tps/i2/TB1nmqyFFXXXXcQbFXXE5jB3XXX-114-114.png" rel="Shortcut Icon" type="image/x-icon">
+    <script>
+ 		function myInit () {
+ 			var dpr, rem, scale;
+ 			var docEl = document.documentElement;
+ 			var fontEl = document.createElement('style');
+ 			var metaEl = document.querySelector('meta[name="viewport"]');
+ 			var clientWidth = docEl.clientWidth
+ 			if(clientWidth>540)clientWidth = 540
+ 			dpr = window.devicePixelRatio || 1;
+ 			rem = 100 * clientWidth / 320 * dpr;
+ 			scale = 1 / dpr;
+
+ 			// 设置viewport，进行缩放，达到高清效果
+ 			metaEl.setAttribute('content', 'width=' + dpr * clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+
+ 			// 设置data-dpr属性，留作的css hack之用
+ 			docEl.setAttribute('data-dpr', dpr);
+
+ 			// 动态写入样式
+ 			docEl.firstElementChild.appendChild(fontEl);
+ 			fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}'; 
+ 		}
+ 		myInit()
+    </script>
+    <link href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>手机淘宝</title>
+</head>
+
+<body>
+	<header class="top-fixed">
+		<div class="search-placeholder">
+			<span>寻找宝贝店铺</span>
+		</div>
+	</header>
+	<div class="container">
+		<section class="tbanner">
+			<!-- Swiper -->
+		    <div class="swiper-container">
+		        <div class="swiper-wrapper">
+			        <div class="swiper-slide"><a href="#"><img src="https://gw.alicdn.com/imgextra/i2/63/TB21EZ3ruJ8puFjy1XbXXagqVXa_!!63-0-luban.jpg_q50.jpg" alt=""></a></div>
+			        <div class="swiper-slide"><a href="#"><img src="https://aecpm.alicdn.com/simba/img/TB1CWf9KpXXXXbuXpXXSutbFXXX.jpg_q50.jpg" alt=""></a></div>
+			        <div class="swiper-slide"><a href="#"><img src="https://aecpm.alicdn.com/simba/img/TB14ab1KpXXXXclXFXXSutbFXXX.jpg_q50.jpg" alt=""></a></div>
+			        <div class="swiper-slide"><a href="#"><img src="https://gw.alicdn.com/imgextra/i2/107/TB2MRU_u4hmpuFjSZFyXXcLdFXa_!!107-0-luban.jpg_q50.jpg" alt=""></a></div>
+			        <div class="swiper-slide"><a href="#"><img src="https://gw.alicdn.com/imgextra/i4/125/TB26CwMqNXlpuFjSsphXXbJOXXa_!!125-0-luban.jpg_q50.jpg" alt=""></a></div>
+			        <div class="swiper-slide"><a href="#"><img src="https://gw.alicdn.com/imgextra/i3/105/TB2qsajvhxmpuFjSZFNXXXrRXXa_!!105-0-luban.jpg_q50.jpg" alt=""></a></div>
+			        <div class="swiper-slide"><a href="#"><img src="https://gw.alicdn.com/imgextra/i3/78/TB2ofBmbIPRfKJjSZFOXXbKEVXa_!!78-0-luban.jpg_q50.jpg" alt=""></a></div>
+			        <div class="swiper-slide"><a href="#"><img src="https://img.alicdn.com/imgextra/i4/4/TB2C.TEoxRDOuFjSZFzXXcIipXa_!!4-0-luban.jpg_q50.jpg" alt=""></a></div>
+		        </div>
+		        <!-- Add Pagination -->
+		        <div class="swiper-pagination"></div>
+			</div>
+		</section>
+		<section class="tentrance fscreen">
+			<ul>
+				<li data-href="#">
+					<div class="navimg" data-src="https://gw.alicdn.com/tps/TB1FDOHLVXXXXcZXFXXXXXXXXXX-183-129.png?imgtag=avatar" data-href=""></div>
+					<div class="navtext">天猫</div>
+				</li>
+				<li data-href="#">
+					<div class="navimg" data-src="https://gw.alicdn.com/tps/i2/TB19BluIVXXXXX6XpXXN4ls0XXX-183-129.png?imgtag=avatar" data-href=""></div>
+					<div class="navtext">聚划算</div>
+				</li>
+				<li data-href="#">
+					<div class="navimg" data-src="https://gw.alicdn.com/tps/TB1PlmNLVXXXXXEXFXXXXXXXXXX-183-129.png?imgtag=avatar" data-href=""></div>
+					<div class="navtext">天猫国际</div>
+				</li>
+				<li data-href="#">
+					<div class="navimg" data-src="https://gw.alicdn.com/tps/TB1RN0HMFXXXXXNXpXXXXXXXXXX-183-129.png?imgtag=avatar" data-href=""></div>
+					<div class="navtext">外卖</div>
+				</li>
+				<li data-href="#">
+					<div class="navimg" data-src="https://gw.alicdn.com/tps/TB1exaOLVXXXXXeXFXXXXXXXXXX-183-129.png?imgtag=avatar" data-href=""></div>
+					<div class="navtext">天猫超市</div>
+				</li>
+				<li data-href="#">
+					<div class="navimg" data-src="https://img.alicdn.com/tps/TB1GzMJLXXXXXXoXXXXXXXXXXXX-183-129.png" data-href=""></div>
+					<div class="navtext">充值中心</div>
+				</li>
+				<li data-href="#">
+					<div class="navimg" data-src="https://gw.alicdn.com/tps/TB1LNMxPXXXXXbhaXXXXXXXXXXX-183-129.png" data-href=""></div>
+					<div class="navtext">飞猪旅行</div>
+				</li>
+				<li data-href="#">
+					<div class="navimg" data-src="https://gw.alicdn.com/tps/TB1cniBJpXXXXataXXXXXXXXXXX-183-129.png?imgtag=avatar" data-href=""></div>
+					<div class="navtext">领金币</div>
+				</li>
+				<li data-href="#">
+					<div class="navimg" data-src="https://img.alicdn.com/tfs/TB1Kxe8QFXXXXbSXVXXXXXXXXXX-183-129.png" data-href=""></div>
+					<div class="navtext">拍卖</div>
+				</li>
+				<li data-href="#">
+					<div class="navimg" data-src="https://gw.alicdn.com/tps/i1/TB1c1FMIpXXXXawXpXXN4ls0XXX-183-129.png?imgtag=avatar" data-href=""></div>
+					<div class="navtext">分类</div>
+				</li>
+			</ul>
+		</section>
+		<section class="toutiao fscreen">
+			<span class="logo"></span>
+			<div class="horizontal-container">
+				<div class="horizontal-view" data-href="#">
+					<span class="tag">最新</span>
+					<span class="message">AMD海量显卡被矿工疯抢：AIB打出相应广告</span>
+				</div>
+				<div class="horizontal-view" data-href="#">
+					<span class="tag">时尚</span>
+					<span class="message">卷裤脚已成过去式，开叉裤子更美</span>
+				</div>
+				<div class="horizontal-view" data-href="#">
+					<span class="tag">最新</span>
+					<span class="message">疑似一加5渲染图曝光：天线设计带感</span>
+				</div>
+				<div class="horizontal-view" data-href="#">
+					<span class="tag">优惠</span>
+					<span class="message">买灯送内存：博帝展示Viper LED内存条</span>
+				</div>
+			</div>
+		</section>
+		<div class="separator"></div>
+		<section class="trushbuy fscreen">
+			<div class="trushbuy-left" data-src="https://gw.alicdn.com/tps/i2/TB1nQXGJVXXXXcEXXXXKKOh2VXX-432-567.jpg_q50.jpg?imgtag=avatar" data-href="#">
+				<div class="count-container">
+					<div>
+						<span role="h">00</span><span class="dot">:</span><span role="m">22</span><span class="dot">:</span><span role="s">00</span>
+					</div>
+				</div>
+			</div>
+			<div class="spey"></div>
+			<div class="trushbuy-right">
+				<div class="trushbuy-rtop" data-href="#">
+					<div class="trushbuy-rtleft" data-src="https://img.alicdn.com/tps/TB19RaGLpXXXXcDXpXXXXXXXXXX-333-261.jpg_q50.jpg?imgtag=avatar"></div>
+					<div class="trushbuy-rtright" data-src="https://img.alicdn.com/imgextra/i4/69/TB209fNXOpnpuFjSZFIXXXh2VXa_!!2-subaru.png"></div>
+				</div>
+				<div class="spex"></div>
+				<div class="trushbuy-rbottom">
+					<div class="trushbuy-rbleft" data-src="https://gw.alicdn.com/tps/TB1MzfaLpXXXXaXXXXXXXXXXXXX-345-306.jpg_q50.jpg" data-href="#"></div>
+					<div class="spey"></div>
+					<div class="trushbuy-rbright" data-src="https://img.alicdn.com/imgextra/i3/27/TB21MzojFXXXXXbXpXXXXXXXXXX_!!27-2-subaru.png" data-href="#"></div>
+				</div>
+			</div>
+		</section>
+		<div class="separator"></div>
+		<section class="tcheap fscreen">
+			<header class="tcheap-title">
+				<div class="title-logo"></div>
+				<div class="title-msg">超实惠</div>
+			</header>
+			<div class="spex"></div>
+			<div class="tcheap-content">
+				<div class="content-big" data-src="https://gw.alicdn.com/tps/TB1u_5AKVXXXXaGXFXXXXXXXXXX-432-330.jpg_q50.jpg" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-small" data-src="https://img.alicdn.com/imgextra/i3/61/TB2H69.qSFjpuFjSszhXXaBuVXa_!!2-subaru.png" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-small" data-src="https://img.alicdn.com/imgextra/i1/4/TB2hbA6acPRfKJjSZFOXXbKEVXa_!!2-subaru.png" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-small" data-src="https://gw.alicdn.com/tps/i1/TB1rWBkJFXXXXXXXpXX7Wdi7pXX-231-330.jpg_q50.jpg" data-href="#"></div>
+			</div>
+			<div class="spex"></div>
+			<div class="tcheap-content">
+				<div class="content-big" data-src="https://img.alicdn.com/imgextra/i1/26/TB2mfhcsmFjpuFjSszhXXaBuVXa_!!2-subaru.png" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-small" data-src="https://img.alicdn.com/bao/uploaded/TB1AdvmNFXXXXXwXFXXSutbFXXX.jpg_q50.jpg" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-small" data-src="https://img.alicdn.com/imgextra/i2/2670830951/TB25NlYaWm5V1BjSsziXXaZMpXa_!!2670830951.jpg_q50.jpg" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-small" data-src="https://img.alicdn.com/imgextra/i1/45/TB2wDSGogNlpuFjy0FfXXX3CpXa_!!2-subaru.png" data-href="#"></div>
+			</div>
+		</section>
+		<div class="separator"></div>
+		<section class="tmall sscreen">
+			<header class="tmall-title">
+				<div class="title-logo"></div>
+				<div class="title-msg">天猫必逛</div>
+			</header>
+			<div class="spex"></div>
+			<div class="tmall-content">
+				<div class="content-big" data-src="https://img.alicdn.com/imgextra/i3/89/TB2j6s9XPm2.eBjSZFtXXX56VXa_!!2-subaru.png" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-big" data-src="https://img.alicdn.com/imgextra/i4/22/TB28IdIqbVkpuFjSspcXXbSMVXa_!!2-subaru.png" data-href="#"></div>
+			</div>
+			<div class="spex"></div>
+			<div class="tmall-content">
+				<div class="content-small" data-src="https://img.alicdn.com/imgextra/i4/37/TB2VCoYoFXXXXaSXpXXXXXXXXXX_!!2-subaru.png" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-small" data-src="https://gw.alicdn.com/tfs/TB15bCLRpXXXXXiXVXXXXXXXXXX-281-330.jpg_q50.jpg" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-small" data-src="https://img.alicdn.com/tfs/TB1JAd_QFXXXXb7XFXXXXXXXXXX-281-330.jpg_q50.jpg" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-small" data-src="https://img.alicdn.com/tfs/TB11hVQRFXXXXcQXXXXXXXXXXXX-281-330.jpg_q50.jpg" data-href="#"></div>
+			</div>
+			<div class="spex"></div>
+			<div class="spex"></div>
+		</section>
+		<div class="separator"></div>
+		<section class="tfeatures sscreen">
+			<header class="tfeatures-title">
+				<div class="title-logo"></div>
+				<div class="title-msg">特色好货</div>
+			</header>
+			<div class="spex"></div>
+			<div class="tfeatures-content">
+				<div class="content-big" data-src="https://img.alicdn.com/imgextra/i1/12/TB2NMqjuyRnpuFjSZFCXXX2DXXa_!!2-subaru.png" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-small" data-src="https://img.alicdn.com/imgextra/i2/60/TB2BOC1dwSI.eBjy1XcXXc1jXXa_!!2-subaru.png" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-small" data-src="https://img.alicdn.com/imgextra/i2/45/TB2rULmpXXXXXbqXpXXXXXXXXXX_!!2-subaru.png" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-small" data-src="https://gw.alicdn.com/tps/i1/TB193dyJFXXXXauXpXXKWJi7pXX-231-330.png" data-href="#"></div>
+			</div>
+			<div class="spex"></div>
+			<div class="tfeatures-content">
+				<div class="content-big" data-src="https://img.alicdn.com/imgextra/i3/98/TB2idXKdIeJ.eBjy0FiXXXqapXa_!!2-subaru.png" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-small" data-src="https://gw.alicdn.com/tfs/TB1V9KERpXXXXXoXpXXXXXXXXXX-231-330.jpg_q50.jpg" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-small" data-src="https://gw.alicdn.com/tfs/TB1qL7BRXXXXXbzXXXXXXXXXXXX-231-330.png" data-href="#"></div>
+				<div class="spey"></div>
+				<div class="content-small" data-src="https://img.alicdn.com/imgextra/i3/29/TB2zZSpjVXXXXa_XpXXXXXXXXXX_!!2-subaru.png" data-href="#"></div>
+			</div>
+		</section>
+		<section class="tmore sscreen" data-href="#">
+			<div class="left"></div>
+			<div class="middle">更多服务</div>
+			<div class="right"></div>
+		</section>
+		<section class="tbanner2 sscreen" data-src="https://gw.alicdn.com/tps/TB1CPtJMXXXXXcAXFXXXXXXXXXX-1125-225.png" data-href="#"></section>
+		<div class="separator"></div>
+		<section class="thot  sscreen">
+			<header>
+				<div class="title-logo"></div>
+				<div class="title-msg">热门市场</div>
+				<div class="title-more">
+					<div class="title-more-text" data-href="#">更多</div>
+					<div class="title-more-img" data-href="#"></div>
+				</div>
+			</header>
+			<div class="spex"></div>
+			<div class="thot-4i4pic">
+				<div class="content" data-href="#">
+					<div class="title">iFashion</div>
+					<div class="text">春季种草好物</div>
+					<div class="img" data-src="https://img.alicdn.com/imgextra/i2/2/TB2sYWZgOpnpuFjSZFkXXc4ZpXa_!!707982500.jpg_q50.jpg"></div>
+				</div>
+				<div class="spey"></div>
+				<div class="content" data-href="#">
+					<div class="title">潮玩城</div>
+					<div class="text">发现发烧装备</div>
+					<div class="img" data-src="https://img.alicdn.com/imgextra/i2/2/TB2zPbHsXXXXXa7XpXXXXXXXXXX_!!2647724572.jpg_q50.jpg"></div>
+				</div>
+				<div class="spey"></div>
+				<div class="content" data-href="#">
+					<div class="title">亲宝贝</div>
+					<div class="text">花少钱养好娃</div>
+					<div class="img" data-src="https://img.alicdn.com/imgextra/i2/2/TB2aFDVpFXXXXXfXpXXXXXXXXXX_!!75947278.jpg_q50.jpg"></div>
+				</div>
+				<div class="spey"></div>
+				<div class="content" data-href="#">
+					<div class="title">精选市场</div>
+					<div class="text">更多好市场</div>
+					<div class="img" data-src="https://img.alicdn.com/tps/TB1ys9BMXXXXXXSaXXXXXXXXXXX-270-177.jpg_q50.jpg?imgtag=avatar"></div>
+				</div>
+			</div>
+			<div class="spex"></div>
+			<div class="thot-2i4pic">
+				<div class="content" data-href="#">
+					<div class="title">商场同款</div>
+					<div class="text">蕾丝情怀公主梦</div>
+					<div class="img">
+						<div class="img-half" data-src="https://img.alicdn.com/imgextra/i2/2/TB2NnftX6Hz11Bjy0FpXXcNiVXa_!!2481422638.png"></div>
+						<div class="img-half" data-src="https://img.alicdn.com/imgextra/i2/2/TB2FJW3bpLzQeBjSZJiXXXesFXa_!!2481422638.png"></div>
+					</div>
+				</div>
+				<div class="spey"></div>
+				<div class="content" data-href="#">
+					<div class="title">美鞋汇</div>
+					<div class="text">这个夏天爱上粗跟凉鞋</div>
+					<div class="img">
+						<div class="img-half" data-src="https://img.alicdn.com/imgextra/i2/2/TB1EzX1KXXXXXbdXpXXSutbFXXX.jpg_q50.jpg"></div>
+						<div class="img-half" data-src="https://img.alicdn.com/imgextra/i2/2/TB23VXwX36B11BjSspoXXcwVXXa_!!734170738.png"></div>
+					</div>
+				</div>
+			</div>
+			<div class="spex"></div>
+			<div class="thot-2i4pic">
+				<div class="content" data-href="#">
+					<div class="title">结婚吧</div>
+					<div class="text">后现代水晶果盘，装扮年轻洋溢婚房</div>
+					<div class="img">
+						<div class="img-half" data-src="https://img.alicdn.com/imgextra/TB15jGhQFXXXXaRXpXXSutbFXXX.jpg_q50.jpg"></div>
+						<div class="img-half" data-src="https://img.alicdn.com/imgextra/i2/2/TB1UFacNVXXXXXMapXXwu0bFXXX.png"></div>
+					</div>
+				</div>
+				<div class="spey"></div>
+				<div class="content" data-href="#">
+					<div class="title">摩登潮童</div>
+					<div class="text">女童粉色公主鞋，Q萌娃成长记</div>
+					<div class="img">
+						<div class="img-half" data-src="https://img.alicdn.com/imgextra/i2/2/TB2xKPFaNfxQeBjSspjXXX4opXa_!!0-dgshop.jpg_q50.jpg"></div>
+						<div class="img-half" data-src="https://img.alicdn.com/imgextra/TB1KCFNOpXXXXcOXpXXSutbFXXX.jpg_q50.jpg"></div>
+					</div>
+				</div>
+			</div>
+			<div class="spex"></div>
+			<div class="thot-2i4pic">
+				<div class="content" data-href="#">
+					<div class="title">爱跑步 </div>
+					<div class="text">阿甘鞋，历史上经典的慢跑鞋</div>
+					<div class="img">
+						<div class="img-half" data-src="https://img.alicdn.com/imgextra/TB1drqZLpXXXXXGXVXXSutbFXXX.jpg_q50.jpg"></div>
+						<div class="img-half" data-src="https://img.alicdn.com/imgextra/TB1xz1LLpXXXXbyaXXXSutbFXXX.jpg_q50.jpg"></div>
+					</div>
+				</div>
+				<div class="spey"></div>
+				<div class="content" data-href="#">
+					<div class="title">腔调</div>
+					<div class="text">优雅短呢阔腿裤，高跟鞋在职场永驻</div>
+					<div class="img">
+						<div class="img-half" data-src="https://img.alicdn.com/imgextra/TB1ZCvxOpXXXXaUXFXXSutbFXXX.jpg_q50.jpg"></div>
+						<div class="img-half" data-src="https://img.alicdn.com/imgextra/i2/2/TB1_hm1LXXXXXawXXXXwu0bFXXX.png"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="tbanner2 sscreen" data-src="https://gw.alicdn.com/tps/i4/TB1KVBFMXXXXXXvapXXwprb_XXX-1125-225.jpg_q50.jpg" data-href="#"></section>
+		<div class="separator"></div>
+		<section class="tshop sscreen">
+			<div class="spex"></div>
+			<header>
+				<div class="title-msg">每日好店</div>
+				<div class="title-more">
+					<div class="title-more-text" data-href="#">更多</div>
+					<div class="title-more-img" data-href="#"></div>
+				</div>
+			</header>
+			<div class="spex"></div>
+			<div class="content">
+				<div class="content-half">
+					<div class="img-wrapper" data-href="#">
+						<div class="img-l" data-src="https://gw.alicdn.com/bao/uploaded/i3/13025907/TB2l3S_u7qvpuFjSZFhXXaOgXXa_!!13025907.jpg_q50.jpg"></div>
+						<div class="img-r">
+							<div class="img-rs" data-src="https://gw.alicdn.com/bao/uploaded/i2/13025907/TB29eKmbsPRfKJjSZFOXXbKEVXa_!!13025907.jpg_q50.jpg"></div>
+							<div class="img-rs img-rb" data-src="https://gw.alicdn.com/bao/uploaded/i3/13025907/TB2XUbOu5lnpuFjSZFgXXbi7FXa_!!13025907.jpg_q50.jpg"></div>
+						</div>
+					</div>
+					<div class="content-text">有逼格</div>
+				</div>
+				<div class="content-half">
+					<div class="img-wrapper" data-href="#">
+						<div class="img-l" data-src="https://gw.alicdn.com/bao/uploaded/i1/57698908/TB2BqVMogFkpuFjSspnXXb4qFXa_!!57698908.jpg_q50.jpg"></div>
+						<div class="img-r">
+							<div class="img-rs" data-src="https://gw.alicdn.com/bao/uploaded/i1/57698908/TB28gXVj9FmpuFjSZFrXXayOXXa_!!57698908.jpg_q50.jpg"></div>
+							<div class="img-rs img-rb" data-src="https://gw.alicdn.com/bao/uploaded/i1/57698908/TB2O3.0gYVkpuFjSspcXXbSMVXa_!!57698908.jpg_q50.jpg"></div>
+						</div>
+					</div>
+					<div class="content-text">一间老店</div>
+				</div>
+			</div>
+			<div class="dot-container">
+				<div class="dot"></div>
+			</div>
+		</section>
+		<section class="guess tscreen">
+			<header>
+				<div class="title">
+					<div class="title-logo"></div>
+					<div class="title-msg">猜你喜欢</div>
+				</div>
+				<div class="description">实时推荐最适合你的宝贝</div>
+			</header>
+			<main>
+				<ul class="products">
+					<li class="product" data-href="#">
+						<div class="product-img" data-src="https://img.alicdn.com/bao/uploaded/i2/514255741/TB2nj.GsFXXXXb.XpXXXXXXXXXX_!!514255741.jpg_q50.jpg"></div>
+						<div class="product-title">[为你推荐]振信家用蔬菜水果手动甩干机沥水篮脱水篮脱水器沙拉手动滤水篮</div>
+						<div class="procuct-price">
+							<span class="price-sign">￥</span><span class="price-number">17.2</span>
+						</div>
+					</li>
+					<li class="product" data-href="#">
+						<div class="product-img" data-src="https://img.alicdn.com/bao/uploaded/i2/TB1V8Y7JVXXXXchXVXXXXXXXXXX_!!0-item_pic.jpg_q50.jpg"></div>
+						<div class="product-title">[为你推荐]东北特产 传统老式糕点 大虾酥 回忆中的味道 纯手工制作 500克</div>
+						<div class="procuct-price">
+							<span class="price-sign">￥</span><span class="price-number">19.8</span>
+						</div>
+					</li>
+					<li class="product" data-href="#">
+						<div class="product-img" data-src="https://img.alicdn.com/bao/uploaded/i3/649195315/TB2aXMVeoWO.eBjSZPcXXbopVXa_!!649195315.jpg_q50.jpg"></div>
+						<div class="product-title">[为你推荐]2017新款泡茶壶耐热玻璃花茶壶功夫红茶具不锈钢过滤泡茶杯冲茶器</div>
+						<div class="procuct-price">
+							<span class="price-sign">￥</span><span class="price-number">16.8</span>
+						</div>
+					</li>
+					<li class="product" data-href="#">
+						<div class="product-img" data-src="https://img.alicdn.com/bao/uploaded/i2/1731898599/TB2BO_ed39J.eBjSsppXXXAAVXa_!!1731898599.jpg_q50.jpg"></div>
+						<div class="product-title">[为你推荐]超强增压花洒喷头莲蓬头淋浴热水器喷头过滤净水手持花洒彩色套装</div>
+						<div class="procuct-price">
+							<span class="price-sign">￥</span><span class="price-number">24.0</span>
+						</div>
+					</li>
+					<li class="product" data-href="#">
+						<div class="product-img" data-src="https://img.alicdn.com/bao/uploaded/i3/T1DB0zFytXXXXXXXXX_!!0-item_pic.jpg_q50.jpg"></div>
+						<div class="product-title">[为你推荐]特大塑料洗澡桶泡澡桶沐浴桶沐浴盆婴儿儿童泡澡加厚塑料包邮</div>
+						<div class="procuct-price">
+							<span class="price-sign">￥</span><span class="price-number">38.0</span>
+						</div>
+					</li>
+					<li class="product" data-href="#">
+						<div class="product-img" data-src="https://img.alicdn.com/bao/uploaded/i2/TB1jhBOFVXXXXaRXpXXXXXXXXXX_!!0-item_pic.jpg_q50.jpg"></div>
+						<div class="product-title">[为你推荐]金号 专柜正品 纯棉素色绣花浴裙 加厚抹胸扣式家居裙女浴衣 包邮</div>
+						<div class="procuct-price">
+							<span class="price-sign">￥</span><span class="price-number">58.0</span>
+						</div>
+					</li>
+					
+				</ul>
+			</main>
+		</section>
+		<footer class="tfooter">
+			<div class="info">
+				code by <a href="https://github.com/xinx1n" target="_blank">xinx1n</a>
+			</div>
+		</footer>
+	</div>
+	<nav class="foot-nav">
+		<a data-href="#"><span></span><p>首页</p></a>		
+		<a data-href="#"><span></span><p>物流</p></a>		
+		<a data-href="#"><span></span><p>购物车</p></a>		
+		<a data-href="#"><span></span><p>我的淘宝</p></a>		
+		<a data-href="#"><span></span><p>更多</p></a>		
+	</nav>
+<script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js"></script>
+<script> window.Swiper ||  document.write('<script src="js/vendor/swiper-3.4.2.min.js"><\/script>') </script>
+<script src="js/main.js"></script>
+</body>
+
+</html>
