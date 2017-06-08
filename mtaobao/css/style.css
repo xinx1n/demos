@@ -1286,6 +1286,21 @@ footer.tfooter > .info a {
 footer.tfooter > .info a:hover {
   color: #3E67AD;
 }
+[data-dpr="2"] footer.tfooter {
+  margin-bottom: 88px;
+}
+[data-dpr="2.5"] footer.tfooter {
+  margin-bottom: 110px;
+}
+[data-dpr="2.75"] footer.tfooter {
+  margin-bottom: 121px;
+}
+[data-dpr="3"] footer.tfooter {
+  margin-bottom: 132px;
+}
+[data-dpr="4"] footer.tfooter {
+  margin-bottom: 176px;
+}
 /* tfooter END*/
 /*foot-nav*/
 nav.foot-nav {
