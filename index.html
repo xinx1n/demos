@@ -14,6 +14,18 @@
     ol>li {padding: .2em .5em; }
     ol>li:hover {background: #ddd; }
     ol>li .difficulty {float: right; }
+    .mtaobao{
+        position: relative;
+    }
+    .mtaobao>img{
+        display: none;
+    }
+    .mtaobao>a:hover~img{
+        display: unset;
+        position: absolute;
+        left: -330px;
+        top:-100px;
+    }
     </style>
 </head>
 
@@ -27,6 +39,10 @@
             <li><a href="banner/banner.html">3D banner</a></li>
             <li><a href="material/index.html">material</a></li>
             <li><a href="sign/login.html">sign</a></li>
+            <li class="mtaobao">
+                <a href="mtaobao/index.html" title="有些 devicePixelRatio 还没适配好，有点蛋疼…… 手机扫码预览|点击打开">手机淘宝-动态 REM 方案</a>
+                <img src="http://qr.liantu.com/api.php?text=https://xinx1n.github.io/demos/mtaobao/index.html" alt="手机扫码预览">
+            </li>
     	</ol>
     </div>
 </body>
