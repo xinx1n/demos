@@ -20,9 +20,16 @@
 	 		  el.style.backgroundImage = 'url(' + el.dataset.src + ')'
 	 		})
 	 	}
+	 	//显示隐藏 gotop 按钮
+	 	function showGoTop () {
+	 		var goTopEl = document.getElementById('goTop')
+	 		goTopEl.style.display = window.scrollY<463*myglobaldpr ? 'none': 'block'
+	 	}
 	 	document.addEventListener("DOMContentLoaded", function(){
 	 		var mbody = document.querySelector('body')
 	 		mbody.style.backgroundColor = '#eee'
+	 		//显示隐藏 gotop 按钮
+	 		showGoTop()
 	 		//加载背景图
 	 	  	var els1 = document.querySelectorAll('.fscreen [data-src],.fscreen[data-src]')
 		 	var els2 = document.querySelectorAll('.sscreen [data-src],.sscreen[data-src]')
@@ -59,6 +66,27 @@
 		 		spe.style.backgroundColor = '#E8E8E8'
 		 		spe.style.height = '1px'
 		 		spe.style.width = spe.parentElement.getBoundingClientRect().width + 'px'
+		 	})
+		 	//显示隐藏 gotop 按钮
+		 	window.addEventListener('scroll',function () {
+		 		showGoTop()
+		 	})
+		 	var goTopEl = document.getElementById('goTop')
+ 			var goTopTimer = null
+		 	goTopEl.addEventListener('click',function () {
+		 		var time = Math.sqrt(window.scrollY)/1.5
+		 		goTopTimer =  setInterval(function(){
+		 			if(window.scrollY<=0){
+		 				clearInterval(goTopTimer)
+		 			}
+		 			window.scrollBy(0,-time)
+		 		},10)
+		 	})
+		 	document.addEventListener('touchstart',function () {
+		 		goTopTimer&&clearInterval(goTopTimer);
+		 	})
+		 	document.addEventListener('mousedown',function () {
+		 		goTopTimer&&clearInterval(goTopTimer);
 		 	})
 	 	});
 }();

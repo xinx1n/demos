@@ -61,6 +61,7 @@ section{
 }
 .container{
     margin: 0 auto;
+    position: relative;
     .px2px(max-width,540);
 }
 .title-logo{
@@ -865,3 +866,46 @@ nav.foot-nav{
 [data-dpr="3"] nav.foot-nav{ .pxbydpr3(3); }
 [data-dpr="4"] nav.foot-nav{ .pxbydpr3(4); }
 /*foot-nav END*/
+/*go top*/
+.pxbydpr4(@dpr){
+    font-size: @dpr* 12px;
+    width: @dpr* 44px;
+    height: @dpr* 44px;
+    line-height: @dpr* 60px;
+    border-radius:@dpr*  50%;
+    right: @dpr* 10px;
+    bottom: @dpr* 70px;
+}
+.pxbydpr5(@dpr){
+    font-size: @dpr* 20px;
+    -webkit-text-stroke-width: @dpr* 0.2px;
+    width: @dpr* 44px;
+    height: @dpr* 44px;
+    line-height: @dpr* 24px;
+}
+
+.gotop{
+    display: none;
+    position: fixed;
+    text-align: center;
+    background-color: #FFF;
+    color: #BBB;
+    z-index: 9;
+    cursor: pointer;
+    .pxbydpr4(1);
+    >span{
+        position: absolute;
+        display: block;
+        color: #999;
+        font-style: normal;
+        font-family: 'h5index-iconfont';
+        -webkit-font-smoothing: antialiased;
+        .pxbydpr5(1)
+    }
+}
+[data-dpr="2"] .gotop{.pxbydpr4(2); >span{.pxbydpr5(2)}}
+[data-dpr="2.5"] .gotop{.pxbydpr4(2.5); >span{.pxbydpr5(2.5)}}
+[data-dpr="2.75"] .gotop{.pxbydpr4(2.75); >span{.pxbydpr5(2.75)}}
+[data-dpr="3"] .gotop{.pxbydpr4(3); >span{.pxbydpr5(3)}}
+[data-dpr="4"] .gotop{.pxbydpr4(4); >span{.pxbydpr5(4)}}
+/*go top END*/

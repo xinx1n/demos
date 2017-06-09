@@ -8,6 +8,7 @@
     <link href="https://gw.alicdn.com/tps/i2/TB1nmqyFFXXXXcQbFXXE5jB3XXX-114-114.png" rel="apple-touch-icon-precomposed">
     <link href="https://gw.alicdn.com/tps/i2/TB1nmqyFFXXXXcQbFXXE5jB3XXX-114-114.png" rel="Shortcut Icon" type="image/x-icon">
     <script>
+    	var myglobaldpr
  		function myInit () {
  			var dpr, rem, scale;
  			var docEl = document.documentElement;
@@ -30,7 +31,8 @@
 
  			// 动态写入样式
  			docEl.firstElementChild.appendChild(fontEl);
- 			fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}'; 
+ 			fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}';
+ 			myglobaldpr = dpr 
  		}
  		myInit()
     </script>
@@ -440,6 +442,7 @@
 		<a data-href="#"><span></span><p>我的淘宝</p></a>		
 		<a data-href="#"><span></span><p>更多</p></a>		
 	</nav>
+	<div id="goTop" class="gotop"><span></span>顶部</div>
 <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js"></script>
 <script> window.Swiper ||  document.write('<script src="js/vendor/swiper-3.4.2.min.js"><\/script>') </script>
 <script src="js/main.js"></script>
