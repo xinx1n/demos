@@ -68,8 +68,12 @@
 		 		spe.style.width = spe.parentElement.getBoundingClientRect().width + 'px'
 		 	})
 		 	//显示隐藏 gotop 按钮
+		 	var scrollTime=null
 		 	window.addEventListener('scroll',function () {
-		 		showGoTop()
+		 		scrollTime&&clearTimeout(scrollTime)
+		 		scrollTime = setTimeout(function () {
+			 		showGoTop()
+		 		}, 300)
 		 	})
 		 	var goTopEl = document.getElementById('goTop')
  			var goTopTimer = null
