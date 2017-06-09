@@ -36,7 +36,6 @@
 		 	//头条滚动
 		 	var scrollEl = document.querySelectorAll('.horizontal-container>.horizontal-view')
 		 	var scrollContainer = document.querySelector('.horizontal-container')
-		 	console.log(scrollEl.length)
 		 	var length = scrollEl.length
 		 	var count = 1
 		 	setInterval(function () {
