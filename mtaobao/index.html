@@ -16,6 +16,9 @@
  			var clientWidth = docEl.clientWidth
  			if(clientWidth>540)clientWidth = 540
  			dpr = window.devicePixelRatio || 1;
+ 			var dprs = [2,2.5,2.75,3,4]
+ 			// 因为 CSS 只写了这几个 dpr 的样式，所以其他的 dpr 放弃实现真正的 1像素，避免样式错乱
+ 			dpr = dprs.some(function (elem) {return elem === dpr}) ? dpr:1
  			rem = 100 * clientWidth / 320 * dpr;
  			scale = 1 / dpr;
 
