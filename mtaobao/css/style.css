@@ -1252,7 +1252,7 @@ footer.tfooter {
   font-size: 16px;
   height: 1.07rem;
   margin-bottom: 44px;
-  color: #fff;
+  color: #35373F;
   position: relative;
   background-color: #4e525e;
   background-repeat: no-repeat;
@@ -1280,7 +1280,7 @@ footer.tfooter > .info {
   right: .04rem;
 }
 footer.tfooter > .info a {
-  color: #fff;
+  color: #35373F;
   text-decoration: none;
 }
 footer.tfooter > .info a:hover {
