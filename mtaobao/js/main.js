@@ -16,7 +16,8 @@
 	 	//加载背景图
 	 	function loadBackgrImg (els) {
 	 		Array.prototype.forEach.call(els,function (el) {
-	 		  el.style.backgroundImage = `url(${el.dataset.src})`
+	 		  // el.style.backgroundImage = `url(${el.dataset.src})`
+	 		  el.style.backgroundImage = 'url(' + el.dataset.src + ')'
 	 		})
 	 	}
 	 	document.addEventListener("DOMContentLoaded", function(){
@@ -40,7 +41,8 @@
 		 	var count = 1
 		 	setInterval(function () {
 		 	  if(count >= length ){ count = 0 }
-		 	  scrollContainer.style.transform = `translateY(-${100*count}%)`
+		 	  // scrollContainer.style.transform = `translateY(-${100*count}%)`
+		 	  scrollContainer.style.transform = 'translateY(-' + 100*count + '%)'
 		 	  count++
 		 	},2500)
 		 	//细分割线
