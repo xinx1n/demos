@@ -74,12 +74,12 @@
 		 	var goTopEl = document.getElementById('goTop')
  			var goTopTimer = null
 		 	goTopEl.addEventListener('click',function () {
-		 		var time = Math.sqrt(window.scrollY)/1.5
+		 		var perlen = Math.sqrt(window.scrollY)/1.5 * myglobaldpr
 		 		goTopTimer =  setInterval(function(){
 		 			if(window.scrollY<=0){
 		 				clearInterval(goTopTimer)
 		 			}
-		 			window.scrollBy(0,-time)
+		 			window.scrollBy(0,-perlen)
 		 		},10)
 		 	})
 		 	document.addEventListener('touchstart',function () {
