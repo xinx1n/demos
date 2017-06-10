@@ -27,7 +27,7 @@
 	 	}
 	 	document.addEventListener("DOMContentLoaded", function(){
 	 		var mbody = document.querySelector('body')
-	 		mbody.style.backgroundColor = '#eee'
+	 		mbody.style.visibility = 'visible'
 	 		//显示隐藏 gotop 按钮
 	 		showGoTop()
 	 		//加载背景图
