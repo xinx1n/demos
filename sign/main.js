@@ -50,6 +50,18 @@ eventDelegation(tabNav,'click','.sign-logo:not(.active)',function (el,e) {
         tabPane.children[elIndex].classList.add('active')
     }, 400)
 })
+//页面加载完后再给切换登陆、注册的动画元素加上 transiton
+document.addEventListener('DOMContentLoaded',function () {
+    console.log(111)
+    var signLogo = document.querySelectorAll('.sign-container>.sign-wrapper>.sign-logo-container>.sign-logo')
+    var signMain = document.querySelectorAll('.sign-container>.sign-wrapper>.sign-main-container>.sign-main')
+    Array.prototype.forEach.call(signLogo,function(element, index) {
+        element.style.transition = 'all .5s ease-in-out'
+    })
+    Array.prototype.forEach.call(signLogo,function(element, index) {
+        element.style.transition = 'all .4s ease-in-out'
+    })
+})
 // tools
 function eventDelegation (element, eventType, selector, func) {
     element.addEventListener(eventType, function(e) {
