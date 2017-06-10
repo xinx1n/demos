@@ -6,7 +6,7 @@ Array.prototype.forEach.call(allInput, function(element, index) {
         let inputGroup = targetEl.closest('.input-group')
         let line2 = inputGroup.children[2]
         if(!isFocus){
-            line2.style.cssText = `transform-origin: ${e.layerX}px center 0px; transform: scaleX(0); transition: all 0s;`
+            line2.style.cssText = `transform-origin: ${e.offsetX}px center 0px; transform: scaleX(0); transition: all 0s;`
         }
     })
     element.addEventListener('focus', function(e) {
@@ -34,6 +34,53 @@ Array.prototype.forEach.call(allInput, function(element, index) {
     addFilled(element)
 });
 
+
+var tabNav = document.querySelector('[data-role="tabs-nav"]')
+var tabPane = document.querySelector('[data-role="tabs-panes"]')
+eventDelegation(tabNav,'click','.sign-logo:not(.active)',function (el,e) {
+    Array.prototype.forEach.call(e.currentTarget.children, function (chileEl) {
+        chileEl.classList.remove('active')
+    })
+    el.classList.add('active')
+    Array.prototype.forEach.call(tabPane.children, function (chileEl) {
+        chileEl.classList.remove('active')
+    })
+    var elIndex = getIndex(el)
+    setTimeout(function () {
+        tabPane.children[elIndex].classList.add('active')
+    }, 400)
+})
+
+function eventDelegation (element, eventType, selector, func) {
+    element.addEventListener(eventType, function(e) {
+        let el = e.target
+        while (!el.matches(selector)) {
+            if (el === element) {
+                el = null
+                break;
+            }
+            el = el.parentNode
+        }
+        el && func.call(el, el, e)
+    })
+    return element
+}
+function getIndex(element) {
+    let siblings = element.parentNode.children
+    for (let index = 0; index < siblings.length; index++) {
+      if (siblings[index] === element) {
+        return index
+      }
+    }
+    return -1
+}
+function uniqueClass(element, className) {
+    dom.every(element.parentNode.children, el => {
+      el.classList.remove(className)
+    })
+    element.classList.add(className)
+    return element
+}
 function addFilled (element) {
     if (element.value !== '') {
         element.classList.add('filled')
@@ -41,6 +88,12 @@ function addFilled (element) {
         element.classList.remove('filled')
     }
 }
+
+
+
+
+
+
 
 
 // var myinput = document.getElementById('myinput')
