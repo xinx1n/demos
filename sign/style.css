@@ -92,7 +92,7 @@ input[type=submit]::-moz-focus-inner {
 }
 .sign-container>.sign-wrapper>.sign-logo-container>.sign-logo {
     height: 100%;
-    width: 40%;
+    width: 38%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -103,7 +103,7 @@ input[type=submit]::-moz-focus-inner {
     cursor: pointer;
 }
 .sign-container>.sign-wrapper>.sign-logo-container>.sign-logo.active{
-    width: 60%;
+    width: 62%;
     color: unset;
     font-size: unset;
     cursor: unset;
