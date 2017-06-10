@@ -1,3 +1,4 @@
+// input 下划线动画
 var allInput = document.querySelectorAll('input:not([type="submit"])')
 Array.prototype.forEach.call(allInput, function(element, index) {
     var isFocus = false
@@ -33,8 +34,7 @@ Array.prototype.forEach.call(allInput, function(element, index) {
     })
     addFilled(element)
 });
-
-
+// sign-in sign-up 切换
 var tabNav = document.querySelector('[data-role="tabs-nav"]')
 var tabPane = document.querySelector('[data-role="tabs-panes"]')
 eventDelegation(tabNav,'click','.sign-logo:not(.active)',function (el,e) {
@@ -50,7 +50,7 @@ eventDelegation(tabNav,'click','.sign-logo:not(.active)',function (el,e) {
         tabPane.children[elIndex].classList.add('active')
     }, 400)
 })
-
+// tools
 function eventDelegation (element, eventType, selector, func) {
     element.addEventListener(eventType, function(e) {
         let el = e.target
@@ -89,24 +89,3 @@ function addFilled (element) {
     }
 }
 
-
-
-
-
-
-
-
-// var myinput = document.getElementById('myinput')
-// myinput.onclick = function (e) {
-//  let inputGroup = e.target.closest('.input-group')
-//  let line2 = inputGroup.children[2]
-//  line2.style.cssText = `transform-origin: ${e.layerX}px center 0px;transform: scaleX(1);`
-//  setTimeout(function () {
-//      line2.style.transform = 'scale(1)'
-//  },1)
-// }
-// myinput.onblur = function (e) {
-//  let inputGroup = e.target.closest('.input-group')
-//  let line2 = inputGroup.children[2]
-//  line2.style.transform = 'scaleX(0)'
-// }
