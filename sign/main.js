@@ -35,6 +35,7 @@ Array.prototype.forEach.call(allInput, function(element, index) {
     addFilled(element)
 });
 // sign-in sign-up 切换
+var animationTimer = null
 var tabNav = document.querySelector('[data-role="tabs-nav"]')
 var tabPane = document.querySelector('[data-role="tabs-panes"]')
 eventDelegation(tabNav,'click','.sign-logo:not(.active)',function (el,e) {
@@ -46,7 +47,8 @@ eventDelegation(tabNav,'click','.sign-logo:not(.active)',function (el,e) {
         chileEl.classList.remove('active')
     })
     var elIndex = getIndex(el)
-    setTimeout(function () {
+    animationTimer&&clearTimeout(animationTimer)
+    animationTimer = setTimeout(function () {
         tabPane.children[elIndex].classList.add('active')
     }, 400)
 })
