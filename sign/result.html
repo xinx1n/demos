@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="cache-control" content="max-age=0" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<title>Document</title>
+	<style>
+		body{
+			margin: 0;
+			min-height: 100vh;
+			font-size: 50px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #eee;
+		}
+		.container{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.container button{
+			outline: none;
+			border: none;
+			padding: 6px 20px;
+			background-color: #2A56C6;
+			color: #fff;
+			border-radius: 2px;
+			font-size: 16px;
+			vertical-align: middle;
+			cursor: pointer;
+			box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+
+		}
+		.container button:hover{
+			background-color: #3E7EEA;
+		}
+	</style>
+</head>
+<div class="container">
+	<span id="resultMsg"></span>
+	<button id="logOut" hidden>登出</button>
+</div>
+<body>
+<script src="https://cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+	<script>
+		const appId = '1KeILo7moWLtykR7uCWTcXUJ-gzGzoHsz';
+		const appKey = '9wRLsRPHHN4f26bBoKY10W0l';
+		AV.init({ appId, appKey });
+		var currentUser = AV.User.current();
+		var logOut = document.querySelector('#logOut')
+		if (currentUser) { 
+			resultMsg.textContent = '欢迎' + currentUser.get('nickname')
+			logOut.removeAttribute('hidden')
+		}else{
+			resultMsg.textContent = '请登录'
+			setTimeout(function () {
+				window.location.replace('login.html') 
+			}, 500)
+		}
+		logOut.addEventListener('click', function() {
+			AV.User.logOut()
+			window.location.replace('login.html') 
+		})
+
+	</script>
+</body>
+</html>

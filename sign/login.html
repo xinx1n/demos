@@ -18,68 +18,75 @@
     <div class="sign-container">
     	<div class="sign-wrapper">
     		<section class="sign-logo-container" data-role="tabs-nav">
-                <div class="sign-logo active">
+                <div class="sign-logo active" id="sign-in-nav">
                     登录
                 </div>
-                <div class="sign-logo">
+                <div class="sign-logo" id="sign-up-nav">
                     注册
                 </div>
             </section>
     		<div class="sign-main-container" data-role="tabs-panes">
-                <section class="sign-main active" id="sign-in">
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <input type="email" name="username">
-                            <div class="place-holder">电子邮件地址</div>
+                <form method="POST" id="sign-in-form">
+                    <section class="sign-main active" id="sign-in">
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <input type="email" name="email">
+                                <div class="place-holder">电子邮件地址</div>
+                            </div>
+                            <div class="line1"></div>
+                            <div class="line2"></div>
                         </div>
-                        <div class="line1"></div>
-                        <div class="line2"></div>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <input type="password" name="password">
-                            <div class="place-holder">输入您的密码</div>
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <input type="password" name="password">
+                                <div class="place-holder">输入您的密码</div>
+                            </div>
+                            <div class="line1"></div>
+                            <div class="line2"></div>
                         </div>
-                        <div class="line1"></div>
-                        <div class="line2"></div>
-                    </div>
-                    <div class="submit-container">
-                        <button type="submit" >登录</button>
-                    </div>
-                </section>
-                <section class="sign-main" id="sign-up">
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <input type="text" name="nickname">
-                            <div class="place-holder">输入您的昵称</div>
+                        <div class="submit-container">
+                            <button type="submit" id="sign-in-btn">登录</button>
                         </div>
-                        <div class="line1"></div>
-                        <div class="line2"></div>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <input type="email" name="username">
-                            <div class="place-holder">电子邮件地址</div>
+                        <div class="error-container"><span class="error"></span></div>
+                    </section>
+                </form>
+                <form method="POST" id="sign-up-form">
+                    <section class="sign-main" id="sign-up">
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <input type="text" name="nickname">
+                                <div class="place-holder">输入您的昵称</div>
+                            </div>
+                            <div class="line1"></div>
+                            <div class="line2"></div>
                         </div>
-                        <div class="line1"></div>
-                        <div class="line2"></div>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <input type="password" name="password">
-                            <div class="place-holder">输入您的密码</div>
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <input type="email" name="email">
+                                <div class="place-holder">电子邮件地址</div>
+                            </div>
+                            <div class="line1"></div>
+                            <div class="line2"></div>
                         </div>
-                        <div class="line1"></div>
-                        <div class="line2"></div>
-                    </div>
-                    <div class="submit-container">
-                        <button type="submit" >注册</button>
-                    </div>
-                </section>
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <input type="password" name="password">
+                                <div class="place-holder">输入您的密码</div>
+                            </div>
+                            <div class="line1"></div>
+                            <div class="line2"></div>
+                        </div>
+                        <div class="submit-container">
+                            <button type="submit" id="sign-up-btn">注册</button>
+                        </div>
+                        <div class="error-container"><span class="error"></span></div>
+                    </section>
+                </form>
             </div>
     	</div>
     </div>
-    <script src="main.js"></script>
+    <script src="https://cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

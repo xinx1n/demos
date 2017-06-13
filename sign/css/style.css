@@ -13,7 +13,6 @@ body {
     font-weight: 400;
 }
 .error {
-    background-color: red;
     color: red;
 }
 /*firefox 默认样式*/
@@ -117,7 +116,12 @@ input[type=submit]::-moz-focus-inner {
     display: flex;
     position: relative;
 }
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main{
+.sign-container>.sign-wrapper>.sign-main-container>form{
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+}
+.sign-container>.sign-wrapper>.sign-main-container .sign-main{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -129,22 +133,22 @@ input[type=submit]::-moz-focus-inner {
     opacity: 0;
     visibility: hidden;
 }
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main.active{
+.sign-container>.sign-wrapper>.sign-main-container .sign-main.active{
     visibility: visible;
     transform: translateX(0);
     opacity: 1;
 }
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main#sign-up{
+.sign-container>.sign-wrapper>.sign-main-container .sign-main#sign-up{
     transform: translateX(calc(-100% + 10px));
 }
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main#sign-up.active{
+.sign-container>.sign-wrapper>.sign-main-container .sign-main#sign-up.active{
     transform: translateX(-100%);
 }
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main label {
+.sign-container>.sign-wrapper>.sign-main-container .sign-main label {
     margin-bottom: 20px;
 }
 
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main input:not([type="submit"]) {
+.sign-container>.sign-wrapper>.sign-main-container .sign-main input:not([type="submit"]) {
     background-color: transparent;
     border: none;
     font-size: 14px;
@@ -154,24 +158,24 @@ input[type=submit]::-moz-focus-inner {
     outline: none;
 }
 
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main>.input-group {
+.sign-container>.sign-wrapper>.sign-main-container .sign-main>.input-group {
     padding-top: 40px;
     position: relative;
 }
 
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main>.input-group>.input-wrapper {
+.sign-container>.sign-wrapper>.sign-main-container .sign-main>.input-group>.input-wrapper {
     position: relative;
 }
 
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main>.input-group>.input-wrapper>input:focus~.place-holder{
+.sign-container>.sign-wrapper>.sign-main-container .sign-main>.input-group>.input-wrapper>input:focus~.place-holder{
 	color: #4285f4;
     transform: scale(.9) translateY(-26px);
 }
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main>.input-group>.input-wrapper>input.filled~.place-holder {
+.sign-container>.sign-wrapper>.sign-main-container .sign-main>.input-group>.input-wrapper>input.filled~.place-holder {
     transform: scale(.9) translateY(-26px);
 }
 
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main>.input-group>.input-wrapper>.place-holder {
+.sign-container>.sign-wrapper>.sign-main-container .sign-main>.input-group>.input-wrapper>.place-holder {
     transform-origin: bottom left;
     transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
@@ -182,7 +186,7 @@ input[type=submit]::-moz-focus-inner {
     width: 100%;
 }
 
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main>.input-group>.line1 {
+.sign-container>.sign-wrapper>.sign-main-container .sign-main>.input-group>.line1 {
     background-color: rgba(0, 0, 0, 0.12);
     width: 100%;
     height: 1px;
@@ -191,7 +195,7 @@ input[type=submit]::-moz-focus-inner {
     bottom: -2px;
 }
 
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main>.input-group>.line2 {
+.sign-container>.sign-wrapper>.sign-main-container .sign-main>.input-group>.line2 {
     transform: scaleX(0);
     background-color: #4285f4;
     width: 100%;
@@ -202,14 +206,14 @@ input[type=submit]::-moz-focus-inner {
     transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main>.submit-container {
+.sign-container>.sign-wrapper>.sign-main-container .sign-main>.submit-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 40px;
 }
 
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main>.submit-container>button[type=submit] {
+.sign-container>.sign-wrapper>.sign-main-container .sign-main>.submit-container>button[type=submit] {
     outline: none;
     border: none;
     padding: 0 20px;
@@ -225,6 +229,11 @@ input[type=submit]::-moz-focus-inner {
     font-family: 'JetLinkMediumOlb3828fbe6195a3';
 }
 
-.sign-container>.sign-wrapper>.sign-main-container>.sign-main>.submit-container>button[type=submit]:hover {
+.sign-container>.sign-wrapper>.sign-main-container .sign-main>.submit-container>button[type=submit]:hover {
     background-color: #3E7EEA;
+}
+.sign-container>.sign-wrapper>.sign-main-container .sign-main>.error-container {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 15px;
 }
