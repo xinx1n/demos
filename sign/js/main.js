@@ -57,6 +57,7 @@ function signUp (username,password,email,errEl) {
     user.setPassword(password)
     user.setEmail(email)
     user.signUp().then(function (loginedUser) {
+        localStorage.setItem('defaultTabNav', 'sign-in-nav')
         errEl.textContent = ''
         window.location.href = 'result.html'
     }, function (error) {
