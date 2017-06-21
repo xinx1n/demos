@@ -25,19 +25,7 @@
 	 		var goTopEl = document.getElementById('goTop')
 	 		goTopEl.style.display = window.scrollY<463*myglobaldpr ? 'none': 'block'
 	 	}
-	 	function getPageData(url,parentEl){
-	 		axios.get(url, {})
-	 		  .then(function (response) {
-	 		    response.data.products.forEach(function(onedata) {
-	 		    	createProductEl(onedata,parentEl)
-	 		    })
-	 		    return response.data.hasNext
-	 		  })
-	 		  .catch(function (error) {
-	 		  	console.log(error)
-	 		  })
-
-	 	}
+	 	// 创建并插入懒加载获取的元素
 	 	function createProductEl(onedata,parentEl){
 	 		var liEl = document.createElement('li')
 	 		liEl.className = 'product'
@@ -115,29 +103,28 @@
 		 			//显示隐藏 gotop 按钮
 			 		showGoTop()
 		 		}, 300)
-		 			//懒加载 猜你喜欢
-	 				var productsElToViewbottom = productsEl.getBoundingClientRect().bottom - document.documentElement.clientHeight
-			 		if(productsElToViewbottom <= -0&&!isloaded){
-			 			console.log('开始加载',page)
-			 			isloaded = true
-			 			axios.get('data/page'+ page +'.json', {})
-				 			 .then(function (response) {
-				 			    response.data.products.forEach(function(onedata) {
-				 			    	createProductEl(onedata,productsEl)
-				 			    })
-				 			    console.log('加载完成',page)
-				 			    if(response.data.hasNext){
-				 			    	page++
-				 			    	isloaded = false
-				 			    }else{
-				 			    	isloaded = true
-				 			    }
-				 			 })
-				 			 .catch(function (error) {
-				 			  	console.log(error)
-				 			 })
-			 		}
-		 		
+	 			//懒加载 猜你喜欢
+ 				var productsElToViewbottom = productsEl.getBoundingClientRect().bottom - document.documentElement.clientHeight
+		 		if(productsElToViewbottom <= -0&&!isloaded){
+		 			console.log('开始加载',page)
+		 			isloaded = true
+		 			axios.get('data/page'+ page +'.json', {})
+			 			 .then(function (response) {
+			 			    response.data.products.forEach(function(onedata) {
+			 			    	createProductEl(onedata,productsEl)
+			 			    })
+			 			    console.log('加载完成',page)
+			 			    if(response.data.hasNext){
+			 			    	page++
+			 			    	isloaded = false
+			 			    }else{
+			 			    	isloaded = true
+			 			    }
+			 			 })
+			 			 .catch(function (error) {
+			 			  	console.log(error)
+			 			 })
+		 		}
 		 	})
 		 	var goTopEl = document.getElementById('goTop')
  			var goTopTimer = null
