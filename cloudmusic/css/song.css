@@ -120,6 +120,39 @@ body {
   height: 3.42rem;
   position: relative;
 }
+.disc-container > .disc > .icon-wrapper {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: .65rem;
+  height: .65rem;
+  transform: translate(-50%, -50%);
+}
+.disc-container > .disc > .icon-wrapper > .icon {
+  width: .65rem;
+  height: .65rem;
+  fill: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+.disc-container > .disc > .icon-wrapper > .icon.icon-pause {
+  display: none;
+}
+.disc-container > .disc > .icon-wrapper > .icon.icon-pause.later {
+  fill: rgba(255, 255, 255, 0.2);
+}
+.disc-container > .disc.playing > .icon-wrapper > .icon.icon-play {
+  display: none;
+}
+.disc-container > .disc.playing > .icon-wrapper > .icon.icon-pause {
+  display: block;
+}
+.disc-container > .disc.stop > .icon-wrapper > .icon.icon-play {
+  display: block;
+}
+.disc-container > .disc.stop > .icon-wrapper > .icon.icon-pause {
+  display: none;
+}
 .disc-container > .disc > img {
   position: absolute;
   left: 50%;
@@ -143,7 +176,6 @@ body {
 }
 .disc-container > .disc.stop .cover,
 .disc-container > .disc.stop .lightshadow {
-  /*animation: circle 20s infinite linear;*/
   animation-play-state: paused;
 }
 .info-container {

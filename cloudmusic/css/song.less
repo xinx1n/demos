@@ -92,6 +92,45 @@ body{.px2px(font-size, 12);}
 		position: relative;
 		height: 3.42rem;
 		position: relative;
+		>.icon-wrapper{
+			z-index: 2;
+			position:absolute;
+			top: 50%;
+			left: 50%;
+			width: .65rem;
+			height: .65rem;
+			transform: translate(-50%,-50%);
+			>.icon{
+				width: .65rem;
+				height: .65rem;
+				fill:rgba(255,255,255,.5);
+				cursor: pointer;
+				&.icon-play{
+				}
+				&.icon-pause{
+					display: none;
+					&.later{
+						fill:rgba(255,255,255,.2);
+					}
+				}
+			}
+		}
+		&.playing>.icon-wrapper>.icon{
+				&.icon-play{
+					display: none;
+				}
+				&.icon-pause{
+					display: block;
+				}
+		}
+		&.stop>.icon-wrapper>.icon{
+				&.icon-play{
+					display: block;
+				}
+				&.icon-pause{
+					display: none;
+				}
+		}
 		>img{
 			position: absolute;
 			left: 50%;
@@ -106,19 +145,18 @@ body{.px2px(font-size, 12);}
 			height: 2.12rem;
 			border-radius: 50%;
 		}
-	}
-	>.disc.playing{
-		.lightshadow{
-			animation: circle1 20s infinite linear;
+		&.playing{
+			.lightshadow{
+				animation: circle1 20s infinite linear;
+			}
+			.cover{
+				animation: circle2 20s infinite linear;
+			}
 		}
-		.cover{
-			animation: circle2 20s infinite linear;
-		}
-	}
-	>.disc.stop{
-		.cover,.lightshadow{
-			/*animation: circle 20s infinite linear;*/
-			animation-play-state: paused;
+		&.stop{
+			.cover,.lightshadow{
+				animation-play-state: paused;
+			}
 		}
 	}
 }
