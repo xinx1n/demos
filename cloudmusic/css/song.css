@@ -324,6 +324,21 @@ body {
 [data-dpr="4"] .info-container > .info-lrc > .lines p {
   padding-bottom: 32px;
 }
+[data-dpr="2"] .info-container > .info-lrc > .lines p {
+  font-size: 32px;
+}
+[data-dpr="2.5"] .info-container > .info-lrc > .lines p {
+  font-size: 40px;
+}
+[data-dpr="2.75"] .info-container > .info-lrc > .lines p {
+  font-size: 44px;
+}
+[data-dpr="3"] .info-container > .info-lrc > .lines p {
+  font-size: 48px;
+}
+[data-dpr="4"] .info-container > .info-lrc > .lines p {
+  font-size: 64px;
+}
 .info-container > .info-lrc > .lines p.current {
   color: #fff;
 }
