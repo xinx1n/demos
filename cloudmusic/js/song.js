@@ -1,20 +1,39 @@
 $(function () {
 	var timer,text_temp
 	var mp3url = 'http://omh8xg82p.bkt.clouddn.com/3520e5664afd420989e88bc3a694c237.mp3'
-	var audioEl = document.createElement('audio')
-	audioEl.src = mp3url	
-	$(audioEl).on('canplay',function () {
-		audioEl.play()
-		$('.disc').addClass('playing')
-		bindBtnEve()
-		timer&&clearTimeout(timer)
-		timer = setTimeout(function () {
-			$('.icon-pause').addClass('later')
-		}, 2000)
-	})
-	$(audioEl).on('ended',function () {
-		$('.icon-pause').click()
-	})
+	play(mp3url)
+	lyric('lrc/lrc.json')
+	function play(url) {
+		var audioEl = document.createElement('audio')
+		audioEl.src = mp3url	
+		$(audioEl).on('canplay',function () {
+			$('.disc').addClass('playing')
+			bindBtnEve()
+			timer&&clearTimeout(timer)
+			timer = setTimeout(function () {
+				$('.icon-pause').addClass('later')
+			}, 2000)
+			audioEl.play()
+		})
+		$(audioEl).on('ended',function () {
+			$('.icon-pause').click()
+		})
+	}
+	function lyric(url) {
+		$.ajax({
+				url: url,
+				type: 'GET',
+				dataType: 'json',
+			})
+			.done(function(data) {
+				var $container = $('.lines')
+				var Lyric = parseLyric(data.lyric,$container)
+				audioEl.ontimeupdate= function () {
+					currentTime = this.currentTime
+					scrollLyirc(Lyric,currentTime,$container)
+				}
+			})
+	}
 	function bindBtnEve () {
 		$('#play-btn').on('click','.icon-play',function () {
 			audioEl.play()
@@ -30,22 +49,6 @@ $(function () {
 			timer&&clearTimeout(timer)
 			$('.icon-pause').removeClass('later')
 		})
-	}
-	lyric('lrc/lrc.json')
-	function lyric(url) {
-		$.ajax({
-				url: url,
-				type: 'GET',
-				dataType: 'json',
-			})
-			.done(function(data) {
-				var $container = $('.lines')
-				var Lyric = parseLyric(data.lyric,$container)
-				audioEl.ontimeupdate= function () {
-					currentTime = this.currentTime
-					scrollLyirc(Lyric,currentTime,$container)
-				}
-			})
 	}
 	function parseLyric(lrc,$container) {
     	var Lyric = {}
