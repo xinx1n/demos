@@ -3,12 +3,12 @@ $(function () {
 	var mp3url = 'http://omh8xg82p.bkt.clouddn.com/3520e5664afd420989e88bc3a694c237.mp3'
 	play(mp3url)
 	lyric('lrc/lrc.json')
+	bindBtnEve()
 	function play(url) {
 		audioEl = document.createElement('audio')
 		audioEl.src = mp3url	
 		$(audioEl).on('canplay',function () {
 			$('.disc').addClass('playing')
-			bindBtnEve()
 			timer&&clearTimeout(timer)
 			timer = setTimeout(function () {
 				$('.icon-pause').addClass('later')
