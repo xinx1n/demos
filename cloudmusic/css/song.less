@@ -27,20 +27,12 @@ html,body{
         @{name}: @px * 4px;
     }
 }
-@keyframes circle1{
+@keyframes circle{
 	0%{
-		transform: translateX(-50%) rotate(0deg);
+		transform: rotate(0deg);
 	}
 	100%{
-		transform: translateX(-50%) rotate(360deg);
-	}
-}
-@keyframes circle2{
-	0%{
-		transform: translate(-50%,-50%) rotate(0deg);
-	}
-	100%{
-		transform: translate(-50%,-50%) rotate(360deg);
+		transform: rotate(360deg);
 	}
 }
 body{.px2px(font-size, 12);}
@@ -137,21 +129,19 @@ body{.px2px(font-size, 12);}
 			left: 50%;
 		}
 		>.ring,.lightshadow{
-			transform: translateX(-50%);
+			margin-left: -3.42/2rem;
 			height: 3.42rem;
 		}
 		>.cover{
 			top: 50%;
-			transform: translate(-50%,-50%);
 			height: 2.12rem;
+			margin-top: -2.12/2rem;
+			margin-left: -2.12/2rem;
 			border-radius: 50%;
 		}
 		&.playing{
-			.lightshadow{
-				animation: circle1 20s infinite linear;
-			}
-			.cover{
-				animation: circle2 20s infinite linear;
+			.lightshadow,.cover{
+				animation: circle 20s infinite linear;
 			}
 		}
 		&.stop{
@@ -230,7 +220,6 @@ body{.px2px(font-size, 12);}
 			text-align: center;
 			border-radius: .04rem;
 			border: 1px solid #d43b32;
-			// .px2px(letter-spacing,4);
 		}
 		>span.btn-red{
 			color: #fff;
