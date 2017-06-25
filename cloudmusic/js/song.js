@@ -38,7 +38,7 @@ $(function () {
 	function bindBtnEve () {
 		$('#play-btn').on('click','.icon-play',function () {
 			audioEl.play()
-			$('.disc').removeClass('stop')
+			$('.disc').addClass('playing')
 			timer&&clearTimeout(timer)
 			timer = setTimeout(function () {
 				$('.icon-pause').addClass('later')
@@ -46,7 +46,7 @@ $(function () {
 		})
 		$('#play-btn').on('click','.icon-pause',function () {
 			audioEl.pause()
-			$('.disc').addClass('stop')
+			$('.disc').removeClass('playing')
 			timer&&clearTimeout(timer)
 			$('.icon-pause').removeClass('later')
 		})

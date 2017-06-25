@@ -98,7 +98,7 @@ body{.px2px(font-size, 12);}
 				fill:rgba(255,255,255,.5);
 				cursor: pointer;
 				&.icon-play{
-					// display: none;
+					display: block;
 				}
 				&.icon-pause{
 					display: none;
@@ -116,14 +116,14 @@ body{.px2px(font-size, 12);}
 					display: block;
 				}
 		}
-		&.stop>.icon-wrapper>.icon{
-				&.icon-play{
-					display: block;
-				}
-				&.icon-pause{
-					display: none;
-				}
-		}
+		// &.stop>.icon-wrapper>.icon{
+		// 		&.icon-play{
+		// 			display: block;
+		// 		}
+		// 		&.icon-pause{
+		// 			display: none;
+		// 		}
+		// }
 		>img{
 			position: absolute;
 			left: 50%;
@@ -139,16 +139,20 @@ body{.px2px(font-size, 12);}
 			margin-left: -2.12/2rem;
 			border-radius: 50%;
 		}
-		&.playing{
-			.lightshadow,.cover{
+		>.lightshadow,.cover{
 				animation: circle 20s infinite linear;
-			}
-		}
-		&.stop{
-			.cover,.lightshadow{
 				animation-play-state: paused;
+		}
+		&.playing{
+			>.lightshadow,.cover{
+				animation-play-state: running;
 			}
 		}
+		// &.stop{
+		// 	.cover,.lightshadow{
+		// 		animation-play-state: paused;
+		// 	}
+		// }
 	}
 }
 .info-container{
