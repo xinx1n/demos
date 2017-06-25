@@ -1,12 +1,31 @@
 $(function () {
 	var timer,text_temp,audioEl
-	var mp3url = 'http://omh8xg82p.bkt.clouddn.com/3520e5664afd420989e88bc3a694c237.mp3'
-	play(mp3url)
-	lyric('lrc/lrc.json')
-	bindBtnEve()
+	let id = (location.search.match(/\bid=([^&]*)/) || [,'1'])[1]
+	loadData('./data/songs/'+ id +'.json')
+	function loadData(url) {
+		$.ajax({
+				url: url,
+				type: 'GET',
+				dataType: 'json',
+			})
+			.done(function(data) {
+				renderSongInfo(data)
+				play(data.url)
+				bindBtnEve()
+				var $container = $('.lines')
+				var Lyric = parseAndRenderLyric(data.lyric,$container)
+				audioEl.ontimeupdate= function () {
+					currentTime = this.currentTime
+					scrollLyirc(Lyric,currentTime,$container)
+				}
+			})
+			.fail(function (error) {
+				loadData('./data/songs/1.json')
+			})
+	}
 	function play(url) {
 		audioEl = document.createElement('audio')
-		audioEl.src = mp3url	
+		audioEl.src = url	
 		$(audioEl).on('canplay',function () {
 			$('.disc').addClass('playing')
 			timer&&clearTimeout(timer)
@@ -19,21 +38,6 @@ $(function () {
 		$(audioEl).on('ended',function () {
 			$('.icon-pause').click()
 		})
-	}
-	function lyric(url) {
-		$.ajax({
-				url: url,
-				type: 'GET',
-				dataType: 'json',
-			})
-			.done(function(data) {
-				var $container = $('.lines')
-				var Lyric = parseAndRenderLyric(data.lyric,$container)
-				audioEl.ontimeupdate= function () {
-					currentTime = this.currentTime
-					scrollLyirc(Lyric,currentTime,$container)
-				}
-			})
 	}
 	function bindBtnEve () {
 		$('#play-btn').on('click','.icon-play',function () {
@@ -50,6 +54,14 @@ $(function () {
 			timer&&clearTimeout(timer)
 			$('.icon-pause').removeClass('later')
 		})
+	}
+	function renderSongInfo (songInfo) {
+		let{name,singer,coverSrc,bgSrc} = songInfo
+		$("#bg-img").css('background-image','url('+bgSrc+')')
+		$("#cover").attr('src',coverSrc)
+		$("#song-name").text(name)
+		$("#singer").text(singer)
+		
 	}
 	function parseAndRenderLyric(lrc,$container) {
     	var Lyric = {}
@@ -76,7 +88,7 @@ $(function () {
 	                // top: (index-1)*32*myglobaldpr
 	            }
 	            timeStamp.push(time)
-	            elStr += '<p data-time="'+ time +'"">'+text+'</p>'
+	            elStr += '<p>'+text+'</p>'
 	        })
 	    }
 	    $container.append($(elStr))
