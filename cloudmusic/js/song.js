@@ -1,6 +1,6 @@
 $(function () {
 	var timer,text_temp,audioEl
-	let id = (location.search.match(/\bid=([^&]*)/) || [,'1'])[1]
+	let id = (location.search.match(/\bid=([^&]*)/) || [,'1'])[1]||'1'
 	loadData('./data/songs/'+ id +'.json')
 	function loadData(url) {
 		$.ajax({
