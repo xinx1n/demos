@@ -5,35 +5,35 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>play</title>
-       <script>
-        var myglobaldpr
-        function myInit () {
-            var dpr, rem, scale;
-            var docEl = document.documentElement;
-            var fontEl = document.createElement('style');
-            var metaEl = document.querySelector('meta[name="viewport"]');
-            var clientWidth = docEl.clientWidth
-            if(clientWidth>475)clientWidth = 475
-            dpr = window.devicePixelRatio || 1;
-            var dprs = [2,2.5,2.75,3,4]
-            // 因为 CSS 只写了这几个 dpr 的样式，所以其他的 dpr 放弃实现真正的 1像素，避免样式错乱
-            dpr = dprs.some(function (elem) {return elem === dpr}) ? dpr:1
-            rem = 100 * clientWidth / 414 * dpr;
-            scale = 1 / dpr;
+    <script>
+    var myglobaldpr
+    function myInit () {
+        var dpr, rem, scale;
+        var docEl = document.documentElement;
+        var fontEl = document.createElement('style');
+        var metaEl = document.querySelector('meta[name="viewport"]');
+        var clientWidth = docEl.clientWidth
+        if(clientWidth>475)clientWidth = 475
+        dpr = window.devicePixelRatio || 1;
+        var dprs = [2,2.5,2.75,3,4]
+        // 因为 CSS 只写了这几个 dpr 的样式，所以其他的 dpr 放弃实现真正的 1像素，避免样式错乱
+        dpr = dprs.some(function (elem) {return elem === dpr}) ? dpr:1
+        rem = 100 * clientWidth / 414 * dpr;
+        scale = 1 / dpr;
 
-            // 设置viewport，进行缩放，达到高清效果
-            metaEl.setAttribute('content', 'width=' + dpr * clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+        // 设置viewport，进行缩放，达到高清效果
+        metaEl.setAttribute('content', 'width=' + dpr * clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
 
-            // 设置data-dpr属性，留作的css hack之用
-            docEl.setAttribute('data-dpr', dpr);
+        // 设置data-dpr属性，留作的css hack之用
+        docEl.setAttribute('data-dpr', dpr);
 
-            // 动态写入样式
-            docEl.firstElementChild.appendChild(fontEl);
-            fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}';
-            myglobaldpr = dpr 
-        }
-        myInit()
-       </script>
+        // 动态写入样式
+        docEl.firstElementChild.appendChild(fontEl);
+        fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}';
+        myglobaldpr = dpr 
+    }
+    myInit()
+    </script>
     <link rel="stylesheet" href="css/song.css">
 </head>
 <body>
