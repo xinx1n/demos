@@ -28,7 +28,7 @@ $(function () {
 			})
 			.done(function(data) {
 				var $container = $('.lines')
-				var Lyric = parseLyric(data.lyric,$container)
+				var Lyric = parseAndRenderLyric(data.lyric,$container)
 				audioEl.ontimeupdate= function () {
 					currentTime = this.currentTime
 					scrollLyirc(Lyric,currentTime,$container)
@@ -51,7 +51,7 @@ $(function () {
 			$('.icon-pause').removeClass('later')
 		})
 	}
-	function parseLyric(lrc,$container) {
+	function parseAndRenderLyric(lrc,$container) {
     	var Lyric = {}
     	var lrcObjParsed = {}
     	var timeStamp = []
@@ -73,7 +73,7 @@ $(function () {
 	            lrcObjParsed[time] = {
 	                index:index++,
 	                text:text,
-	                top: (index-1)*32*myglobaldpr
+	                // top: (index-1)*32*myglobaldpr
 	            }
 	            timeStamp.push(time)
 	            elStr += '<p data-time="'+ time +'"">'+text+'</p>'
@@ -83,6 +83,8 @@ $(function () {
 	    timeStamp.sort(function (a,b) {return b-a })
 		Lyric.lrcObjParsed = lrcObjParsed
 		Lyric.timeStamp = timeStamp
+		// Lyric.height =  $container.find('p').get(0).getBoundingClientRect().height
+		Lyric.height = $container.find('p').outerHeight()
 		return Lyric
 	}
 
@@ -109,8 +111,8 @@ $(function () {
 		    $container.find('p.current').removeClass('current')
 		    var $p = $container.find('p:nth-child('+(lrc.index+1)+')')
 		    $p.addClass('current')
-		    var top = Math.min(0,-lrc.top)
-		    $container.css({'transform':'translateY(-'+lrc.top+'px)'});
+		    var top = (lrc.index-1)*Lyric.height
+		    $container.css({'transform':'translateY(-'+top+'px)'});
 		    text_temp = text
 		}
 	}
