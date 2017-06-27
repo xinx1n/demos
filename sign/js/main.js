@@ -102,6 +102,24 @@ Array.prototype.forEach.call(allInput, function(element, index) {
     })
     addFilled(element)
 });
+window.onload = function() {
+    if (window.navigator.userAgent.indexOf('Chrome') > -1) {
+        var times = 0
+        ;(function loop() {
+            times++
+            var emailEl = document.querySelector('input[type="email"]')
+            if (emailEl.value) {
+                var passwordEls = document.querySelectorAll('input[type="password"]')
+                Array.prototype.forEach.call(passwordEls, function(element, index) {
+                        element.classList.add('filled')
+                })
+            } else if (times < 20) {
+                setTimeout(function() { loop() }, 50)
+            }
+        })()
+    }
+}
+
 // sign-in sign-up 切换
 var animationTimer = null
 var tabNav = document.querySelector('[data-role="tabs-nav"]')
