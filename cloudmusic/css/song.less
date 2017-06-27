@@ -30,7 +30,7 @@ html,body{
 body{.px2px(font-size, 12);}
 .container{
 	position: relative;
-	.px2px(max-width,475);
+	// .px2px(max-width,475);
 	margin: 0 auto;
 	height: 100%;
 	overflow: hidden;
@@ -132,12 +132,12 @@ body{.px2px(font-size, 12);}
 			margin-left: -2.12/2rem;
 			border-radius: 50%;
 		}
-		>.lightshadow,.cover{
+		>.lightshadow,>.cover{
 				animation: circle 20s infinite linear;
 				animation-play-state: paused;
 		}
 		&.playing{
-			>.lightshadow,.cover{
+			>.lightshadow,>.cover{
 				animation-play-state: running;
 			}
 		}
