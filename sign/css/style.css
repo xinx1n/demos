@@ -24,6 +24,11 @@ input[type=submit]::-moz-focus-inner {
     border: 0;
     padding: 0;
 }*/
+/*
+想解决紫铜填充背景色的问题，没找到好办法
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 1000px inherit inset;
+}*/
 /*svg*/
 .svg-container {
     position: absolute;
