@@ -1,0 +1,31 @@
+*{margin:0;padding:0;}
+*, *::before, *::after {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-user-select: none;}
+audio, canvas, iframe, img, svg, video {vertical-align: middle; }
+ul,ol{list-style: none;}
+a{text-decoration: none;}
+html,body{height: 100%; }
+
+.px2px(@name, @px){
+    @{name}: @px * 1px;
+
+    [data-dpr="2"] & {
+        @{name}: @px * 2px;
+    }
+    // for mx3
+    [data-dpr="2.5"] & {
+        @{name}: round(@px * 2.5) * 1px;
+    }
+    // for 小米note
+    [data-dpr="2.75"] & {
+        @{name}: round(@px * 2.75 ) * 1px;
+    }
+    [data-dpr="3"] & {
+        @{name}: round(@px * 3) * 1px
+    }
+    // for 三星note4
+    [data-dpr="4"] & {
+        @{name}: @px * 4px;
+    }
+}
+body{.px2px(font-size, 12);}
+
