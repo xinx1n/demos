@@ -19,7 +19,7 @@ $(function () {
 				console.log(error)
 			})
 	}
-	initData('./data/data.json')
+	initData('./data/lastestmusic.json')
 	$('.mtabnav').on('click','li.tabtitle',function (e) {
 		var $li = $(e.currentTarget)
 		var index = $li.index()
