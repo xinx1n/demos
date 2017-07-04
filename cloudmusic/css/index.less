@@ -1,6 +1,9 @@
 @import "common.less";
 body, button, input, keygen, legend, select, textarea, a, a:visited{
+    font-family: Helvetica,sans-serif;
+    line-height: 1.5;
     color: #333;
+    outline: 0
 }
 a{cursor: pointer;}
 body{background-color: #eee; }
@@ -52,7 +55,7 @@ body{background-color: #eee; }
                     border: 1px solid #fff;
                     width: .8002rem;
                     height: .3rem;
-                    line-height: .3rem;
+                    line-height: .28rem;
                     .px2px(font-size,15);
                     color: #fff;
                     white-space: nowrap;
@@ -92,13 +95,23 @@ body{background-color: #eee; }
         z-index: 9; 
         >nav{
             .px2px(max-width,1024);
+            position: relative;
             margin:0 auto;
             list-style: none;
-            border-bottom: 1px solid #ccc;
             background-color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
+            &::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-bottom: 1px solid #ccc;
+                pointer-events: none;
+            }
             >.tabtitle{
                 flex:1;
                 display: flex;
@@ -114,15 +127,16 @@ body{background-color: #eee; }
                 }
             }
             >.tabtitle.active{
+                color: #d33a31;
                 >.tabtxt::after{
                     content: "";
                     width: 100%;
                     .px2px(height,2);
                     position: absolute;
                     left: 0;
-                    bottom: -1px;
+                    bottom: 0;
                     background-color: #d33a31;
-
+                    z-index: 1;
                 }
             }
         }
@@ -217,63 +231,7 @@ body{background-color: #eee; }
 
             }
             >.lastestmusic{
-                >li{
-                    padding-left: .1rem;
-                    width: 100%;
-                    >a{
-                        display: flex;
-                        position: relative;
-                        border-bottom: 1px solid rgba(0,0,0,.1);
-                        >.info{
-                            flex: 1;
-                            padding: .06rem 0;
-                            width: ~"calc(100% - .22rem)";
-                            display: flex;
-                            flex-direction: column;
-                            >.songtitle{
-                                width: 100%;
-                                height: .25rem;
-                                white-space: nowrap;
-                                overflow: hidden;
-                                text-overflow: ellipsis;
-                                .px2px(font-size,17);
-                                >span{
-                                    color: #888;
-                                    .px2px(margin-left,4);
-                                }
-                            }
-                            >.songinfo{
-                                width: 100%;
-                                height: .18rem;
-                                .px2px(font-size,12px);
-                                color: #888;
-                                white-space: nowrap;
-                                overflow: hidden;
-                                text-overflow: ellipsis;
-                                >svg.sqimg{
-                                    width: .12rem;
-                                    height: 100%;
-                                    fill:#FF6A2F;
-                                }
-                            }
-
-                        }
-                        >.playimg{
-                            padding: 0 .1rem;
-                            display: flex;
-                            justify-content: center;
-                            -ms-align-items: center;
-                            align-items: center;
-                            >svg{
-                                width: .22rem;
-                                height: .22rem;
-                                fill:#aaa;
-
-                            }
-
-                        }
-                    }
-                }
+                //.mmusiclist
             }
             >.loadingmusic{
                 text-align: center;
@@ -314,6 +272,140 @@ body{background-color: #eee; }
 
                 }
                 
+            }
+
+        }
+        >li.hotmusic{
+            >.hottop{
+                position: relative;
+                height: 1.61031rem;
+                background-image: url(//s3.music.126.net/m/s/img/hot_music_bg_2x.jpg?f01a252389c26bcf016816242eaa6aee);
+                background-repeat: no-repeat;
+                background-size: cover;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background-color: rgba(0,0,0,.2);
+                    z-index: 1;
+                }
+                >.hottopcontent{
+                    position: relative;
+                    height: 100%;
+                    padding-left: .2rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    z-index: 2;
+                    >.hoticon{
+                        width: 1.42rem;
+                        height: .67rem;
+                        background-image:url(//s3.music.126.net/m/s/img/index_icon_2x.png?5207a28c3767992ca4bb6d4887c74880);
+                        background-repeat: no-repeat;
+                        background-position: -.24rem -.3rem;
+                        background-size: 1.66rem .97rem;
+                    }
+                    >.hottime{
+                        margin-top: .1rem;
+                        color: rgba(255,255,255,.8);
+                        .px2px(font-size,12);
+                        transform: scale(.91);
+                        transform-origin: left top;
+                    }
+                }
+            }
+            >ol.hotmusiclist{
+                //.mmusiclist
+            }
+            >.hotmore{
+                height: .55rem;
+                line-height: .55rem;
+                text-align: center;
+                >.hotmoretxt{
+                    display: inline-block;
+                    color: #999;
+                    padding-right:.14rem;
+                    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNCAyMiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSJub25lIiBzdHJva2U9IiNjY2MiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBkPSJtMSAxbDEwIDEwLTEwIDEwIi8+PC9zdmc+) 100% no-repeat;
+                    background-size: .07rem .12rem;
+                }
+            }
+            
+        }
+        >li.search{
+            
+        }
+    }
+}
+.mmusiclist{
+    >li{
+        padding-left: .1rem;
+        width: 100%;
+        &:nth-child(1),&:nth-child(2),&:nth-child(3){
+            >a>.num{
+                color: #df3436;
+            }
+        }
+        >a{
+            display: flex;
+            position: relative;
+            border-bottom: 1px solid rgba(0,0,0,.1);
+            >.num{
+                flex-shrink:0;
+                display: flex;
+                align-items: center;
+                .px2px(font-size,17);
+                width: .28rem;
+            }
+            >.info{
+                flex: 1;
+                padding: .06rem 0;
+                width: ~"calc(100% - .22rem)";
+                display: flex;
+                flex-direction: column;
+                >.songtitle{
+                    width: 100%;
+                    height: .25rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    .px2px(font-size,17);
+                    >span{
+                        color: #888;
+                        .px2px(margin-left,4);
+                    }
+                }
+                >.songinfo{
+                    width: 100%;
+                    height: .18rem;
+                    .px2px(font-size,12px);
+                    color: #888;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    >svg.sqimg{
+                        width: .12rem;
+                        height: 100%;
+                        fill:#FF6A2F;
+                    }
+                }
+
+            }
+            >.playimg{
+                padding: 0 .1rem;
+                display: flex;
+                justify-content: center;
+                -ms-align-items: center;
+                align-items: center;
+                >svg{
+                    width: .22rem;
+                    height: .22rem;
+                    fill:#aaa;
+
+                }
+
             }
 
         }

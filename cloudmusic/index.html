@@ -85,12 +85,12 @@
         <div class="mtabarea">
             <div class="mtabnavwrapper">
                 <nav class="mtabnav">
-                    <li class="tabtitle active">
+                    <li class="tabtitle">
                         <div class="tabtxt">
                             <span>推荐音乐</span>
                         </div>
                     </li>
-                    <li class="tabtitle">
+                    <li class="tabtitle active">
                         <div class="tabtxt">
                             <span>热歌榜</span>
                         </div>
@@ -103,7 +103,7 @@
                 </nav>
             </div>
             <ul class="mtabcontent">
-                <li class="suggestion active">
+                <li class="suggestion">
                     <h2>推荐歌单</h2>
                     <ul class="remdlist">
                         <li>
@@ -165,7 +165,7 @@
                     <p class="loadingmusic" id="loadingmusic">
                         <img src="http://omh8xg82p.bkt.clouddn.com/17-7-2/53900063.jpg" alt="">
                     </p>
-                    <ol class="lastestmusic" id="lastestmusic"></ol>
+                    <ol class="lastestmusic mmusiclist" id="lastestmusic"></ol>
                     <footer>
                         <div class="logo">
                             <svg class="logosvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 88" data-reactid="89">
@@ -203,7 +203,18 @@
                         <div class="copyright">网易公司版权所有©1997-2017   杭州乐读科技有限公司运营</div>
                     </footer>
                 </li>
-                <li class="hotmusic">hotmusic</li>
+                <li class="hotmusic active">
+                    <div class="hottop">
+                        <div class="hottopcontent">
+                            <div class="hoticon"></div>
+                            <div class="hottime">更新日期：06月29日</div>
+                        </div>
+                    </div>
+                    <ol class="hotmusiclist mmusiclist" id="hotmusiclist"> </ol>
+                    <div class="hotmore">
+                        <span class="hotmoretxt">查看完整榜单</span>
+                    </div>
+                </li>
                 <li class="search">search</li>
             </ul>
         </div>
