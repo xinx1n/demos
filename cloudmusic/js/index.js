@@ -48,7 +48,8 @@ $(function () {
 			uniAdd(dataProcessed,element.alias)
 		})
 		var suggestArr = dataProcessed.filter(function(element){
-			return (element.toLowerCase().search(val.toLowerCase())!==-1)
+			console.log(element.toLowerCase().search(regTr(val).toLowerCase())!==-1,element.toLowerCase(),regTr(val).toLowerCase())
+			return (element.toLowerCase().search(regTr(val).toLowerCase())!==-1)
 		})
 		$.each(suggestArr,function (index,item) {
 			elStr += '<li><i class="icon"></i><span>'+item+'</span></li>'
@@ -58,7 +59,7 @@ $(function () {
 	function searchcb(data,val){
 		var elStr = ''
 		var searchResult = data.filter(function(element){
-			return (changeSongInfoToString(element).toLowerCase().search(val.toLowerCase())!==-1)
+			return (changeSongInfoToString(element).toLowerCase().search(regTr(val).toLowerCase())!==-1)
 		})
 		$.each(searchResult,function (index,item) {
 			var malias = item.alias==''?'':'<span>('+item.alias+')</span>'
@@ -68,12 +69,9 @@ $(function () {
 		$('#searchresultlist').html(elStr)
 		$('#loadingsearch').remove()
 	}
-
-
 	initData('./data/lastestmusic.json',latstestmusiccb)
 	setTimeout(function () {
 		initData('./data/hotmusic.json',hotmusiccb)
-		// $li = $('.mtabcontent>li').eq(1)
 	},100)
 	setTimeout(function(){
 		initData('./data/hotsearch.json',hotsearchcb)
@@ -120,17 +118,19 @@ $(function () {
 		$('#searchinput').val($(this).text())
 		$('#searchform').trigger('submit')
 	})
-	$('#searchsuggestionlist').on('click','li',function(e){
+	$('#searchsuggestionlist,#searchhistory').on('click','li',function(e){
 		$('#searchinput').val($(this).text())
 		$('#searchform').trigger('submit')
 	})
-	$('#searchhistory').on('click','li',function(e){
-		$('#searchinput').val($(this).find('.historytxt').text())
-		$('#searchform').trigger('submit')
-	})
+	// $('#searchhistory').on('click','li',function(e){
+	// 	$('#searchinput').val($(this).find('.historytxt').text())
+	// 	$('#searchform').trigger('submit')
+	// })
 	$('#searchhistory').on('click','li .close',function(e){
 		e.stopPropagation()
+		console.log(33)
 		var val = $(this).siblings('.historytxt').text()
+		console.log(val)
 		delHistory(val)
 	})
 	$('body').on('toggleSearch',function(e,status){
@@ -140,7 +140,6 @@ $(function () {
 				$('#searchmain').removeClass('hidden')
 				$('#searchsuggestion').addClass('hidden')
 				$('#searchresult').addClass('hidden')
-				initSearchHistory()
 				break;
 			case 2:
 				$('#searchform').addClass('notempty')
@@ -159,12 +158,6 @@ $(function () {
 		}
 	})
 	//tools
-	function saveHotSearch(val) {
-		localStorage.setItem('hotSearch',JSON.stringify(val))
-	}
-	function getHotSearch(){
-		return JSON.parse(localStorage.getItem('hotSearch'))
-	}
 	function initSearchHistory() {
 		var arr = getHistory()
 		var elStr = ''
@@ -175,9 +168,11 @@ $(function () {
 	}
 	function addHistory(val) {
 		addLocalStorage('searchHistory',val)
+		initSearchHistory()
 	}
 	function delHistory(val) {
 		delLocalStorage('searchHistory',val)
+		initSearchHistory()
 	}
 	function getHistory(){
 		return getLocalStorage('searchHistory')
@@ -221,5 +216,10 @@ $(function () {
 		if(arr.indexOf(val)===-1){
 			arr.push(val)
 		}
+	}
+	//^ . [ $ ( ) | * + ? { \
+	function regTr(str) {
+		var reg = /\^|\.|\[|\$|\(|\)|\||\*|\+|\?|\{|\\/g
+		return str.replace(reg,'\\$&')
 	}
 })
