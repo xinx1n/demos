@@ -1,0 +1,53 @@
+[
+	{	"id":1,
+		"name":"刚好遇见你",
+		"singer":"李玉刚",
+		"album":"刚好遇见你",
+		"alias":""
+	},{	"id":2,
+		"name":"童话镇",
+		"singer":"陈一发儿",
+		"album":"童话镇",
+		"alias":""
+	},{	"id":3,
+		"name":"告白气球",
+		"singer":"周杰伦",
+		"album":"周杰伦的床边故事",
+		"alias":""
+	},{	"id":4,
+		"name":"Faded",
+		"singer":"Alan Walker",
+		"album":"Faded",
+		"alias":""
+	},{	"id":5,
+		"name":"泡沫",
+		"singer":"G.E.M.邓紫棋",
+		"album":"The Best of G.E.M. 2008-2012",
+		"alias":""
+	},{	"id":6,
+		"name":"听你说",
+		"singer":"冯提莫/周二珂/栾宝宝",
+		"album":"Remix cover collection混音翻唱作品集",
+		"alias":"Cover 郁可唯和林凡"
+	},{	"id":7,
+		"name":"谢谢你的爱(国)",
+		"singer":"刘德华",
+		"album":"谢谢你的爱",
+		"alias":""
+	},{	"id":8,
+		"name":"永远永远",
+		"singer":"李翊君",
+		"album":"沉迷",
+		"alias":"电视剧《风云之雄霸天下》片尾曲"
+	},{	"id":9,
+		"name":"十年",
+		"singer":"陈奕迅",
+		"album":"黑白灰",
+		"alias":""
+	},{	"id":10,
+		"name":"爱要怎么说出口",
+		"singer":"赵传",
+		"album":"滚石香港黄金十年 赵传精选",
+		"alias":""
+	}
+]

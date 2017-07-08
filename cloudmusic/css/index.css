@@ -90,6 +90,13 @@ body {
 [data-dpr="4"] .container {
   max-width: 4096px;
 }
+.loading {
+  position: relative;
+  height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .top-container {
   height: .64rem;
 }
@@ -433,9 +440,6 @@ body {
 [data-dpr="4"] .mtabarea > ul.mtabcontent > li.suggestion > .remdlist > li > a > .remdtxt {
   font-size: 52px;
 }
-.mtabarea > ul.mtabcontent > li.suggestion > .loadingmusic {
-  text-align: center;
-}
 .mtabarea > ul.mtabcontent > li.suggestion > footer {
   position: relative;
   margin-top: .04rem;
@@ -648,6 +652,9 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   pointer-events: none;
 }
+.mtabarea > ul.mtabcontent > li.search > .searchmain.hidden {
+  display: none;
+}
 .mtabarea > ul.mtabcontent > li.search > .searchmain > section.hotsearch {
   padding: .15rem .1rem 0;
 }
@@ -802,6 +809,9 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   pointer-events: none;
 }
+.mtabarea > ul.mtabcontent > li.search > .searchsuggestion.hidden {
+  display: none;
+}
 .mtabarea > ul.mtabcontent > li.search > .searchsuggestion > h3.searching {
   position: relative;
   margin-left: .1rem;
@@ -852,6 +862,21 @@ body {
   line-height: .45rem;
   color: #333;
 }
+[data-dpr="2"] .mtabarea > ul.mtabcontent > li.search > .searchsuggestion > ul > li > span {
+  font-size: 30px;
+}
+[data-dpr="2.5"] .mtabarea > ul.mtabcontent > li.search > .searchsuggestion > ul > li > span {
+  font-size: 38px;
+}
+[data-dpr="2.75"] .mtabarea > ul.mtabcontent > li.search > .searchsuggestion > ul > li > span {
+  font-size: 41px;
+}
+[data-dpr="3"] .mtabarea > ul.mtabcontent > li.search > .searchsuggestion > ul > li > span {
+  font-size: 45px;
+}
+[data-dpr="4"] .mtabarea > ul.mtabcontent > li.search > .searchsuggestion > ul > li > span {
+  font-size: 60px;
+}
 .mtabarea > ul.mtabcontent > li.search > .searchsuggestion > ul > li > span::after {
   content: "";
   position: absolute;
@@ -861,6 +886,9 @@ body {
   height: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   pointer-events: none;
+}
+.mtabarea > ul.mtabcontent > li.search > .searchresult.hidden {
+  display: none;
 }
 .mtabarea > ul.mtabcontent > li.search > .searchresult > ul.songlist .songtitle {
   color: #507daf;

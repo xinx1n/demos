@@ -162,7 +162,7 @@
                         </li>
                     </ul>
                     <h2>最新音乐</h2>
-                    <p class="loadingmusic" id="loadingmusic">
+                    <p class="loading" id="loadingmusic">
                         <img src="http://omh8xg82p.bkt.clouddn.com/17-7-2/53900063.jpg" alt="">
                     </p>
                     <ol class="lastestmusic mmusiclist" id="lastestmusic"></ol>
@@ -216,51 +216,48 @@
                     </div>
                 </li>
                 <li class="search active">
-                    <form action="GET">
+                    <form action="GET" id="searchform">
                         <div class="inputwrapper">
-                            <input type="search" name="search" class="input" placeholder="" value="" autocomplete="off">
+                            <input id="searchinput" type="search" name="search" class="input" placeholder="" value="" autocomplete="off">
                             <i class="searchicon"></i>
                             <label class="placeholder">搜索歌曲、歌手、专辑</label>
-                            <figure class="close"><i class="closeicon hidden"></i></figure>
+                            <figure class="close" id="searchclose"><i class="closeicon"></i></figure>
                         </div>
                     </form>
-                    <div class="searchmain" style="display:none;">
+                    <div class="searchmain" id="searchmain">
                         <section class="hotsearch">
                             <h3 class="hotsearchtitle">热门搜索</h3>
-                            <ul>
-                                <li>空</li>
-                                <li>快乐男声</li>
-                                <li>太阳的后裔</li>
-                                <li>周杰伦</li>
-                                <li>王者荣耀</li>
-                            </ul>  
+                            <ul id="hotsearchlist"></ul>  
                         </section>
                         <section class="history">
-                            <ul>
-                                <li>
+                            <ul id="searchhistory">
+                                <!--<li>
                                     <i class="icon"></i>
                                     <div class="historycontent">
                                         <span class="historytxt">朴树</span>
                                         <figure class="close"><i class="closeicon"></i></figure>
                                     </div>
-                                </li>
+                                </li>-->
                             </ul>
                         </section>
                     </div>
-                    <div class="searchsuggestion">
+                    <div class="searchsuggestion hidden" id="searchsuggestion">
                         <h3 class="searching">
-                            搜索“fa”
+                            搜索“<span id="searchingtxt"></span>”
                         </h3>
-                        <ul>
+                        <ul id="searchsuggestionlist">
                             <li>
                                 <i class="icon"></i>
                                 <span>faded</span>
                             </li>
                         </ul>
                     </div>
-                    <div class="searchresult">
-                        <ul class="songlist mmusiclist">
-                            <li>
+                    <div class="searchresult hidden" id="searchresult">
+                        <p class="loading" id="loadingsearch">
+                            <img src="http://omh8xg82p.bkt.clouddn.com/17-7-2/53900063.jpg" alt="">
+                        </p>
+                        <ul class="songlist mmusiclist" id="searchresultlist">
+                            <!--<li>
                                 <a href="./song.html?id=1">
                                     <div class="info">
                                         <div class="songtitle">刚好遇见你<span>hahahaha</span></div>
@@ -275,7 +272,7 @@
                                         </svg>
                                     </div>
                                 </a>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                 </li>

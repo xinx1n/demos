@@ -14,6 +14,13 @@ body{background-color: #eee; }
 	margin: 0 auto;
     background-color: #fff;
 }
+.loading{
+    position: relative;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .top-container{
     height: .64rem;
     >.topfix{
@@ -233,9 +240,6 @@ body{background-color: #eee; }
             // >.lastestmusic{
             //     .mmusiclist
             // }
-            >.loadingmusic{
-                text-align: center;
-            }
             >footer{
                 position: relative;
                 margin-top: .04rem;
@@ -419,6 +423,9 @@ body{background-color: #eee; }
                 }
             }
             >.searchmain{
+                &.hidden{
+                    display: none;
+                }
                 >section.hotsearch{
                     padding: .15rem .1rem 0;
                     >h3{
@@ -521,6 +528,9 @@ body{background-color: #eee; }
                 }
             }
             >.searchsuggestion{
+                &.hidden{
+                    display: none;
+                }
                 >h3.searching{
                     position: relative;
                     margin-left: .1rem;
@@ -567,7 +577,7 @@ body{background-color: #eee; }
                             display: inline-block;
                             padding-right: .1rem;
                             flex: 1;
-                            font-size: 15px;
+                            .px2px(font-size,15);
                             line-height: .45rem;
                             color: #333;
                             &::after{
@@ -585,6 +595,9 @@ body{background-color: #eee; }
                 }
             }
             >.searchresult{
+                &.hidden{
+                    display: none;
+                }
                 >ul.songlist{
                     .songtitle{
                         color: #507daf;
