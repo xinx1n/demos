@@ -90,12 +90,12 @@
                             <span>推荐音乐</span>
                         </div>
                     </li>
-                    <li class="tabtitle active">
+                    <li class="tabtitle">
                         <div class="tabtxt">
                             <span>热歌榜</span>
                         </div>
                     </li>
-                    <li class="tabtitle">
+                    <li class="tabtitle active">
                         <div class="tabtxt">
                             <span>搜索</span>
                         </div>
@@ -203,7 +203,7 @@
                         <div class="copyright">网易公司版权所有©1997-2017   杭州乐读科技有限公司运营</div>
                     </footer>
                 </li>
-                <li class="hotmusic active">
+                <li class="hotmusic">
                     <div class="hottop">
                         <div class="hottopcontent">
                             <div class="hoticon"></div>
@@ -215,7 +215,70 @@
                         <span class="hotmoretxt">查看完整榜单</span>
                     </div>
                 </li>
-                <li class="search">search</li>
+                <li class="search active">
+                    <form action="GET">
+                        <div class="inputwrapper">
+                            <input type="search" name="search" class="input" placeholder="" value="" autocomplete="off">
+                            <i class="searchicon"></i>
+                            <label class="placeholder">搜索歌曲、歌手、专辑</label>
+                            <figure class="close"><i class="closeicon hidden"></i></figure>
+                        </div>
+                    </form>
+                    <div class="searchmain" style="display:none;">
+                        <section class="hotsearch">
+                            <h3 class="hotsearchtitle">热门搜索</h3>
+                            <ul>
+                                <li>空</li>
+                                <li>快乐男声</li>
+                                <li>太阳的后裔</li>
+                                <li>周杰伦</li>
+                                <li>王者荣耀</li>
+                            </ul>  
+                        </section>
+                        <section class="history">
+                            <ul>
+                                <li>
+                                    <i class="icon"></i>
+                                    <div class="historycontent">
+                                        <span class="historytxt">朴树</span>
+                                        <figure class="close"><i class="closeicon"></i></figure>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="searchsuggestion">
+                        <h3 class="searching">
+                            搜索“fa”
+                        </h3>
+                        <ul>
+                            <li>
+                                <i class="icon"></i>
+                                <span>faded</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="searchresult">
+                        <ul class="songlist mmusiclist">
+                            <li>
+                                <a href="./song.html?id=1">
+                                    <div class="info">
+                                        <div class="songtitle">刚好遇见你<span>hahahaha</span></div>
+                                        <div class="songinfo">
+                                            <svg class="sqimg">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-sq"></use>
+                                            </svg> 李玉刚 - 刚好遇见你 </div>
+                                    </div>
+                                    <div class="playimg">
+                                        <svg>
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play-circled"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
