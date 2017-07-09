@@ -1,4 +1,6 @@
 $(function () {
+	var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+	isiOS&&$('.disc .cover,.disc .lightshadow').css({'animation':'initial'})
 	var timer,text_temp,audioEl
 	let id = (location.search.match(/\bid=([^&]*)/) || [,'1'])[1]||'1'
 	loadData('./data/songs/'+ id +'.json')
@@ -28,6 +30,7 @@ $(function () {
 		audioEl.src = url	
 		$(audioEl).on('canplay',function () {
 			$('.disc').addClass('playing')
+			isiOS&&ani()
 			timer&&clearTimeout(timer)
 			timer = setTimeout(function () {
 				$('.icon-pause').addClass('later')
@@ -43,6 +46,7 @@ $(function () {
 		$('#play-btn').on('click','.icon-play',function () {
 			audioEl.play()
 			$('.disc').addClass('playing')
+			isiOS&&ani()
 			timer&&clearTimeout(timer)
 			timer = setTimeout(function () {
 				$('.icon-pause').addClass('later')
@@ -51,9 +55,13 @@ $(function () {
 		$('#play-btn').on('click','.icon-pause',function () {
 			audioEl.pause()
 			$('.disc').removeClass('playing')
+			$('.disc .cover,.disc .lightshadow').stop()
 			timer&&clearTimeout(timer)
 			$('.icon-pause').removeClass('later')
 		})
+	}
+	function ani(){
+		AnimateRotate('.disc .cover,.disc .lightshadow',360,20000,'linear',ani)
 	}
 	function renderSongInfo (songInfo) {
 		let{name,singer,coverSrc,bgSrc} = songInfo
@@ -128,4 +136,27 @@ $(function () {
 		    text_temp = text
 		}
 	}
+	function AnimateRotate(slector,d,duration,easing,complete){
+		$(slector).animate({deg: d}, {
+			duration: duration,
+			easing: easing,
+			step: function(now){
+				$(slector).css({
+					transform: "rotate(" + now + "deg)"
+				})
+			},
+			complete:complete
+		})
+		// $({deg: 0}).animate({deg: d}, {
+		// 	duration: duration,
+		// 	easing: easing,
+		// 	step: function(now){
+		// 		$(slector).css({
+		// 			transform: "rotate(" + now + "deg)"
+		// 		})
+		// 	},
+		// 	complete:complete
+		// })
+	}
 })
+
