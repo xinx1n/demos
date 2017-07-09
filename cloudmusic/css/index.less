@@ -481,7 +481,7 @@ body{background-color: #eee; }
                                 position: relative;
                                 flex: 1;
                                 height: 100%;
-                                max-width: 3.79rem;
+                                // max-width: 3.79rem;
                                 display: flex;
                                 align-items: center;
                                 >.historytxt{
@@ -633,7 +633,8 @@ body{background-color: #eee; }
             >.info{
                 flex: 1;
                 padding: .06rem 0;
-                width: ~"calc(100% - .22rem)";
+                // width: ~"calc(100% - .22rem)";
+                overflow: hidden;
                 display: flex;
                 flex-direction: column;
                 >.songtitle{
@@ -650,7 +651,6 @@ body{background-color: #eee; }
                 }
                 >.songinfo{
                     width: 100%;
-                    max-width: 3.34rem;
                     height: .18rem;
                     .px2px(font-size,12px);
                     color: #888;
