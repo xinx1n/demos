@@ -1,7 +1,7 @@
 $(function () {
 	var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
 	isiOS&&$('.disc .cover,.disc .lightshadow').css({'animation':'initial'})
-	var timer,text_temp,audioEl
+	var timer,text_temp,audioEl,mycircleTimer
 	let id = (location.search.match(/\bid=([^&]*)/) || [,'1'])[1]||'1'
 	loadData('./data/songs/'+ id +'.json')
 	function loadData(url) {
@@ -56,15 +56,14 @@ $(function () {
 			audioEl.pause()
 			$('.disc').removeClass('playing')
 			$('.disc .cover,.disc .lightshadow').stop()
+			mycircleTimer&&clearInterval(mycircleTimer)
 			timer&&clearTimeout(timer)
 			$('.icon-pause').removeClass('later')
 		})
 	}
-	var myturn = 1
 	function ani(){
-		$('.disc .cover,.disc .lightshadow').clearQueue()
-		AnimateRotate('.disc .cover,.disc .lightshadow',360*myturn,20000,'linear',ani)
-		myturn++
+		mycircleTimer&&clearInterval(mycircleTimer)
+		mycircleTimer = myani('.disc .cover,.disc .lightshadow',20000)
 	}
 	function renderSongInfo (songInfo) {
 		let{name,singer,coverSrc,bgSrc} = songInfo
@@ -139,27 +138,48 @@ $(function () {
 		    text_temp = text
 		}
 	}
-	function AnimateRotate(slector,d,duration,easing,complete){
-		$(slector).animate({deg: d}, {
-			duration: duration,
-			easing: easing,
-			step: function(now){
-				$(slector).css({
-					transform: "rotate(" + now + "deg)"
-				})
-			},
-			complete:complete
-		})
-		// $({deg: 0}).animate({deg: d}, {
-		// 	duration: duration,
-		// 	easing: easing,
-		// 	step: function(now){
-		// 		$(slector).css({
-		// 			transform: "rotate(" + now + "deg)"
-		// 		})
-		// 	},
-		// 	complete:complete
-		// })
+	function myani(slector,duration){
+		var reg = /\d*\.*\d+/
+		var i = 1
+		var oldDeg = 0
+		var now = 10/duration*360
+		var tmp = $('.disc .cover,.disc .lightshadow')[0].style.transform.match(reg)
+		if(tmp&&tmp.length!==0) { oldDeg = +tmp[0] }
+		return setInterval(function(){
+			deg = (i*now + oldDeg)%360
+			$(slector).css({'transform': "rotate(" + deg + "deg)"})
+			i++
+		},10)
 	}
 })
-
+	// function AnimateRotate(slector,d,duration,easing,complete){
+	// 	$(slector).animate({deg: d}, {
+	// 		duration: duration,
+	// 		easing: easing,
+	// 		step: function(now){
+	// 			$(slector).css({
+	// 				transform: "rotate(" + now + "deg)"
+	// 			})
+	// 		},
+	// 		complete:complete
+	// 	})
+	// 	$({deg: 0}).animate({deg: d}, {
+	// 		duration: duration,
+	// 		easing: easing,
+	// 		step: function(now){
+	// 			$(slector).css({
+	// 				transform: "rotate(" + now + "deg)"
+	// 			})
+	// 		},
+	// 		complete:complete
+	// 	})
+	// }
+	// var turnfl = true
+	// function ani(){
+	// 	$('.disc .cover,.disc .lightshadow').clearQueue().finish()
+	// 	var deg = turnfl?0:360
+	// 	var myturn = turnfl?1:2
+	// 	$('.disc .cover,.disc .lightshadow').css({'transform':'rotate('+deg+'deg)'})
+	// 	AnimateRotate('.disc .cover,.disc .lightshadow',360*myturn,200,'linear',ani)
+	// 	turnfl = !turnfl
+	// }
