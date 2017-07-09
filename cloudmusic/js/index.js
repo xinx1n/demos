@@ -49,7 +49,6 @@ $(function () {
 			uniAdd(dataProcessed,element.alias)
 		})
 		var suggestArr = dataProcessed.filter(function(element){
-			console.log(element.toLowerCase().search(regTr(val).toLowerCase())!==-1,element.toLowerCase(),regTr(val).toLowerCase())
 			return (element.toLowerCase().search(regTr(val).toLowerCase())!==-1)
 		})
 		$.each(suggestArr,function (index,item) {
@@ -106,6 +105,7 @@ $(function () {
 	$('#searchform').on('submit',function(e,val){
 		e.preventDefault()
 		val = val||$('#searchinput').val().trim()
+		if(val=='')return 
 		$('#loadingsearch').show()
 		initData('./data/allsongs.json',function(data) {
 			searchcb(data,val)
@@ -130,9 +130,7 @@ $(function () {
 	// })
 	$('#searchhistory').on('click','li .close',function(e){
 		e.stopPropagation()
-		console.log(33)
 		var val = $(this).siblings('.historytxt').text()
-		console.log(val)
 		delHistory(val)
 	})
 	$('body').on('toggleSearch',function(e,status){
