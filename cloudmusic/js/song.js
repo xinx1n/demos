@@ -60,8 +60,11 @@ $(function () {
 			$('.icon-pause').removeClass('later')
 		})
 	}
+	var myturn = 1
 	function ani(){
-		AnimateRotate('.disc .cover,.disc .lightshadow',360,20000,'linear',ani)
+		$('.disc .cover,.disc .lightshadow').clearQueue()
+		AnimateRotate('.disc .cover,.disc .lightshadow',360*myturn,20000,'linear',ani)
+		myturn++
 	}
 	function renderSongInfo (songInfo) {
 		let{name,singer,coverSrc,bgSrc} = songInfo
