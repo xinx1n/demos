@@ -30,6 +30,7 @@ $(function () {
 
 		})
 		$('#hotmusiclist').append(elStr)
+		$('#loadinghotmusic').remove()
 	}
 	function hotsearchcb(data) {
 		var elStr = ''
@@ -67,7 +68,7 @@ $(function () {
 		})
 		addHistory(val)
 		$('#searchresultlist').html(elStr)
-		$('#loadingsearch').remove()
+		$('#loadingsearch').hide()
 	}
 	initData('./data/lastestmusic.json',latstestmusiccb)
 	setTimeout(function () {
@@ -105,6 +106,7 @@ $(function () {
 	$('#searchform').on('submit',function(e,val){
 		e.preventDefault()
 		val = val||$('#searchinput').val().trim()
+		$('#loadingsearch').show()
 		initData('./data/allsongs.json',function(data) {
 			searchcb(data,val)
 		})
