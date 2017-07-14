@@ -293,6 +293,7 @@ li.article-container>.article-link>.article-bg {
     background-position: center center;
     background-size: cover;
     background-image:url("http://placehold.it/800x800/4285F4/fff?text=Loading...");
+    z-index: 1;
 }
 
 li.article-container>.article-link>.article-info {
@@ -302,6 +303,7 @@ li.article-container>.article-link>.article-info {
     left: 0;
     top: 0;
     background-color: transparent;
+    z-index: 3;
 }
 
 li.article-container>.article-link>.article-info>div {
@@ -326,6 +328,24 @@ li.article-container>.article-link>.article-info>.article-foot .article-goto {
     border-right: 1px solid white;
     transform: rotate(45deg) translate(2px, 2px);
     float: right;
+}
+
+@media (max-width:550px),(min-width:790px) and (max-width:1140px){
+    li.article-container>.article-link{
+        color: white;
+    }
+    li.article-container>.article-link::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .2);
+        pointer-events: none;
+        z-index: 2;
+    }
 }
 
 .article4,
