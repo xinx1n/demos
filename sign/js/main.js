@@ -13,7 +13,11 @@ const leanCloudErrorCodeMsg = {
         217: "无效用户名，不允许为空",
         218: "无效的密码，不允许为空",
         219: "登录失败次数超过限制，请稍候尝试登录",
-        502: "服务器维护"
+        502: "服务器维护",
+        unknown:"请求失败，请稍后尝试"
+}
+function getErrorMessage ({code}) {
+    return leanCloudErrorCodeMsg[code]||leanCloudErrorCodeMsg.unknown
 }
 const appId = '1KeILo7moWLtykR7uCWTcXUJ-gzGzoHsz';
 const appKey = '9wRLsRPHHN4f26bBoKY10W0l';
@@ -47,7 +51,7 @@ function logIn(email, password,errEl){
         errEl.textContent = ''
         window.location.href = 'result.html'
      }, function (error) {
-        errEl.textContent = leanCloudErrorCodeMsg[error.code]
+        errEl.textContent = getErrorMessage(error)
      });
 }
 function signUp (username,password,email,errEl) {
@@ -61,7 +65,7 @@ function signUp (username,password,email,errEl) {
         errEl.textContent = ''
         window.location.href = 'result.html'
     }, function (error) {
-        errEl.textContent = leanCloudErrorCodeMsg[error.code]
+        errEl.textContent = getErrorMessage(error)
     })
 }
 
