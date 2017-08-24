@@ -1,9 +1,9 @@
 # demos
 * [count down](https://xinx1n.github.io/demos/countDown/countDown.html)
-* [clock](https://xinx1n.github.io/demos/clock/clock.html)
+* [clock | CSS 光与影](https://xinx1n.github.io/demos/clock/clock.html)
 * [3D banner](https://xinx1n.github.io/demos/banner/banner.html)
-* [material](https://xinx1n.github.io/demos/material/)
-* [sign](https://xinx1n.github.io/demos/sign/login.html)
+* [material | 响应式设计](https://xinx1n.github.io/demos/material/)
+* [sign | 登录注册](https://xinx1n.github.io/demos/sign/login.html)
 * [手机淘宝-动态 REM 方案|扫码预览](https://xinx1n.github.io/demos/mtaobao/index.html)
 	>![手机扫码](http://qr.liantu.com/api.php?text=https://xinx1n.github.io/demos/mtaobao/index.html)
 * [网易云音乐-手机版|扫码预览](https://xinx1n.github.io/demos/cloudmusic/index.html)
