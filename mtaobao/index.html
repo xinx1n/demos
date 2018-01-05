@@ -7,35 +7,46 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://gw.alicdn.com/tps/i2/TB1nmqyFFXXXXcQbFXXE5jB3XXX-114-114.png" rel="apple-touch-icon-precomposed">
     <link href="https://gw.alicdn.com/tps/i2/TB1nmqyFFXXXXcQbFXXE5jB3XXX-114-114.png" rel="Shortcut Icon" type="image/x-icon">
-    <script>
-    	var myglobaldpr
- 		function myInit () {
- 			var dpr, rem, scale;
- 			var docEl = document.documentElement;
- 			var fontEl = document.createElement('style');
- 			var metaEl = document.querySelector('meta[name="viewport"]');
- 			var clientWidth = docEl.clientWidth
- 			if(clientWidth>540)clientWidth = 540
- 			dpr = window.devicePixelRatio || 1;
- 			var dprs = [2,2.5,2.75,3,4]
- 			// 因为 CSS 只写了这几个 dpr 的样式，所以其他的 dpr 放弃实现真正的 1像素，避免样式错乱
- 			dpr = dprs.some(function (elem) {return elem === dpr}) ? dpr:1
- 			rem = 100 * clientWidth / 320 * dpr;
- 			scale = 1 / dpr;
+<script>
+	var myglobaldpr, myglobalwidth
 
- 			// 设置viewport，进行缩放，达到高清效果
- 			metaEl.setAttribute('content', 'width=' + dpr * clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+	function myInit() {
+		var dpr, rem, scale;
+		var docEl = document.documentElement;
+		var fontEl = document.createElement('style');
+		var metaEl = document.querySelector('meta[name="viewport"]');
+		var clientWidth = docEl.clientWidth
+		if (clientWidth > 540) clientWidth = 540
+		dpr = window.devicePixelRatio || 1;
+		var dprs = [2, 2.5, 2.75, 3, 4]
+		// 因为 CSS 只写了这几个 dpr 的样式，所以其他的 dpr 放弃实现真正的 1像素，避免样式错乱
+		dpr = dprs.some(function (elem) {
+			return elem === dpr
+		}) ? dpr : 1
+		rem = 100 * clientWidth / 320 * dpr;
+		scale = 1 / dpr;
 
- 			// 设置data-dpr属性，留作的css hack之用
- 			docEl.setAttribute('data-dpr', dpr);
+		// 设置viewport，进行缩放，达到高清效果
+		metaEl.setAttribute('content', 'width=' + dpr * clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale +	', minimum-scale=' + scale + ',user-scalable=no');
 
- 			// 动态写入样式
- 			docEl.firstElementChild.appendChild(fontEl);
- 			fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}';
- 			myglobaldpr = dpr 
- 		}
- 		myInit()
-    </script>
+		// 设置data-dpr属性，留作的css hack之用
+		docEl.setAttribute('data-dpr', dpr);
+
+		// 动态写入样式
+		docEl.firstElementChild.appendChild(fontEl);
+		fontEl.innerHTML = 'html{font-size:' + rem + 'px!important;}';
+		myglobaldpr = dpr
+		myglobalwidth = clientWidth
+	}
+	myInit()
+	window.onresize = function () {
+		var currentWidth = document.documentElement.clientWidth
+		if (currentWidth != myglobalwidth) {
+			myglobalwidth = currentWidth
+			window.location.reload()
+		}
+	}
+</script>
     <link href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>手机淘宝-xinx1n</title>
