@@ -39,11 +39,14 @@
 		myglobalwidth = window.innerWidth
 	}
 	myInit()
+	var reloadTimer
 	window.onresize = function () {
 		var currentWidth = window.innerWidth
 		if (currentWidth != myglobalwidth) {
-			myglobalwidth = currentWidth
-			window.location.reload()
+			clearTimeout(reloadTimer)
+			reloadTimer = setTimeout(function() {
+				window.location.reload()
+			}, 50);
 		}
 	}
 </script>
