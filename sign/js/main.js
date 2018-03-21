@@ -108,7 +108,7 @@ Array.prototype.forEach.call(allInput, function(element, index) {
 });
 window.onload = function() {
     if (window.navigator.userAgent.indexOf('Chrome') > -1) {
-        var times = 0
+        /*var times = 0
         ;(function loop() {
             times++
             var emailEl = document.querySelector('input[type="email"]')
@@ -120,7 +120,11 @@ window.onload = function() {
             } else if (times < 20) {
                 setTimeout(function() { loop() }, 50)
             }
-        })()
+        })()*/
+        var filledEl = document.querySelectorAll('input:-webkit-autofill')
+        Array.prototype.forEach.call(filledEl, function(element, index) {
+            element.classList.add('filled')
+        })
     }
 }
 
