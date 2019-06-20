@@ -97,14 +97,14 @@ Array.prototype.forEach.call(allInput, function(element, index) {
         let inputGroup = targetEl.closest('.input-group')
         let line2 = inputGroup.children[2]
         line2.style.transform = 'scaleX(0)'
-        addFilled(targetEl)
+        toogleFilled(targetEl)
         isFocus = false
     })
     element.addEventListener('change', function(e) {
         let targetEl = e.target
-        addFilled(targetEl)
+        toogleFilled(targetEl)
     })
-    addFilled(element)
+    toogleFilled(element)
 });
 window.onload = function() {
     if (window.navigator.userAgent.indexOf('Chrome') > -1) {
@@ -187,7 +187,7 @@ function getIndex(element) {
     }
     return -1
 }
-function addFilled (element) {
+function toogleFilled (element) {
     if (element.value !== '') {
         element.classList.add('filled')
     } else {
