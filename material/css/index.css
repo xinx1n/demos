@@ -292,7 +292,7 @@ li.article-container>.article-link>.article-bg {
     top: 0;
     background-position: center center;
     background-size: cover;
-    background-image:url("http://yotuku.qiniu.caisedebi.com/20-4-21/fff.png");
+    background-image:url("http://yotuku.q.caisedebi.com/20-4-21/fff.png");
     z-index: 1;
 }
 
@@ -424,7 +424,7 @@ li.article-container>.article-link>.article-info>.article-foot .article-goto {
     transform: translateX(42px);
     background-position: -93.2px -244px;
     background-color: #fff;
-    background-image: url('http://yotuku.qiniu.caisedebi.com/17-5-9/72735444-file_1494322720322_15d12.png');
+    background-image: url('http://yotuku.q.caisedebi.com/17-5-9/72735444-file_1494322720322_15d12.png');
     z-index: 20;
 }
 .gototop:hover{
