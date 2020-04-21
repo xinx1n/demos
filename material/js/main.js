@@ -8,28 +8,28 @@
                      title:'Seoul: Printed Matter, Politics, and Performance',
                      description:'Four studios talk about the current design scene in South Korea’s capital.',
                      tag:'Medium / Google Design',
-                     src:'http://omh8xg82p.bkt.clouddn.com/17-5-9/70548308-file_1494332126006_38fd.jpg?imageView2/0/interlace/1/q/45|imageslim',
+                     src:'http://yotuku.qiniu.caisedebi.com/17-5-9/70548308-file_1494332126006_38fd.jpg?imageView2/0/interlace/1/q/45|imageslim',
                  },{
                      id:'article2',
                      link:'https://design.google.com/articles/daydream/',
                      title:'Speaking Volumes',
                      description:'Best practices for designing a brand in VR.',
                      tag:' Article / Tutorial ',
-                     src:'http://omh8xg82p.bkt.clouddn.com/17-5-9/17187570-file_1494330587178_5e88.png?imageView2/0/interlace/1/q/45|imageslim',
+                     src:'http://yotuku.qiniu.caisedebi.com/17-5-9/17187570-file_1494330587178_5e88.png?imageView2/0/interlace/1/q/45|imageslim',
                  },{
                      id:'article3',
                      link:'https://design.google.com/articles/asana/',
                      title:'Asana: Productivity with Personality',
                      description:'Making to-dos more doable with color and character.',
                      tag:'Article / Case Study',
-                     src:'http://omh8xg82p.bkt.clouddn.com/17-5-9/39663127-file_1494321627684_c0c7.png?imageView2/0/interlace/1/q/45|imageslim',
+                     src:'http://yotuku.qiniu.caisedebi.com/17-5-9/39663127-file_1494321627684_c0c7.png?imageView2/0/interlace/1/q/45|imageslim',
                  },{
                      id:'article4',
                      link:'https://design.google.com/articles/stickers/',
                      title:'Sticky Conversations',
                      description:'Allo sticker sets balance the universal and unique.',
                      tag:'Article / Roundtable',
-                     src:'http://omh8xg82p.bkt.clouddn.com/17-5-9/63563146-file_1494321656179_100fe.jpg?imageView2/0/interlace/1/q/45|imageslim',
+                     src:'http://yotuku.qiniu.caisedebi.com/17-5-9/63563146-file_1494321656179_100fe.jpg?imageView2/0/interlace/1/q/45|imageslim',
                  },{
                      id:'article5',
                      link:'https://design.google.com/articles/digital-natives/',
@@ -43,7 +43,7 @@
                      title:'Guide to SPAN Tokyo',
                      description:'Get to know our speakers and livestream the event on October 6.',
                      tag:'Article / Announcement',
-                     src:'http://omh8xg82p.bkt.clouddn.com/17-5-9/19386308-file_1494321679260_b288.png?imageView2/0/interlace/1/q/45|imageslim',
+                     src:'http://yotuku.qiniu.caisedebi.com/17-5-9/19386308-file_1494321679260_b288.png?imageView2/0/interlace/1/q/45|imageslim',
                  },{
                      id:'article7',
                      link:'https://design.google.com/articles/design-is-never-done/',
@@ -57,14 +57,14 @@
                      title:'Making Motion Meaningful',
                      description:'Learn from motion designers working on Google Photos, YouTube Kids, Android, and Google Duo.',
                      tag:'Article / Op Ed',
-                     src:'http://omh8xg82p.bkt.clouddn.com/17-5-9/45493750-file_1494321694765_130e9.png?imageView2/0/interlace/1/q/45|imageslim',
+                     src:'http://yotuku.qiniu.caisedebi.com/17-5-9/45493750-file_1494321694765_130e9.png?imageView2/0/interlace/1/q/45|imageslim',
                  },{
                      id:'article9',
                      link:'https://design.google.com/articles/volume-two/',
                      title:'Volume Two',
                      description:'Explore Tokyo and Los Angeles with our SPAN 2016 reader.',
                      tag:'Article / Case Study',
-                     src:'http://omh8xg82p.bkt.clouddn.com/17-5-9/44715793-file_1494321697036_12262.jpg?imageView2/0/interlace/1/q/45|imageslim',
+                     src:'http://yotuku.qiniu.caisedebi.com/17-5-9/44715793-file_1494321697036_12262.jpg?imageView2/0/interlace/1/q/45|imageslim',
                  },
              ]
          }
