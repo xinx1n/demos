@@ -19,22 +19,22 @@ const leanCloudErrorCodeMsg = {
 function getErrorMessage ({code}) {
     return leanCloudErrorCodeMsg[code]||leanCloudErrorCodeMsg.unknown
 }
-const appId = '1KeILo7moWLtykR7uCWTcXUJ-gzGzoHsz';
-const appKey = '9wRLsRPHHN4f26bBoKY10W0l';
-AV.init({ appId, appKey });
-var currentUser = AV.User.current();
-if (currentUser) { 
-    setTimeout(function () {
-        window.location.href = 'result.html'
-    }, 300)
-}
+// const appId = '1KeILo7moWLtykR7uCWTcXUJ-gzGzoHsz';
+// const appKey = '9wRLsRPHHN4f26bBoKY10W0l';
+// AV.init({ appId, appKey });
+// var currentUser = AV.User.current();
+// if (currentUser) { 
+//     setTimeout(function () {
+//         window.location.href = 'result.html'
+//     }, 300)
+// }
 var signInForm = document.querySelector('#sign-in-form')
 signInForm.addEventListener('submit', function (e) {
     e.preventDefault()
     var password = signInForm.password.value
     var email = signInForm.email.value
     var errEl = document.querySelector('#sign-in-form span.error')
-    logIn(email, password,errEl)
+    // logIn(email, password,errEl)
 })
 var signUpForm = document.querySelector('#sign-up-form')
 signUpForm.addEventListener('submit', function (e) {
@@ -43,7 +43,7 @@ signUpForm.addEventListener('submit', function (e) {
     var password = signUpForm.password.value
     var email = signUpForm.email.value
     var errEl = document.querySelector('#sign-up-form span.error')
-    signUp(username,password,email,errEl)
+    // signUp(username,password,email,errEl)
 })
 
 function logIn(email, password,errEl){
