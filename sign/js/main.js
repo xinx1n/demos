@@ -19,6 +19,29 @@ const leanCloudErrorCodeMsg = {
 function getErrorMessage ({code}) {
     return leanCloudErrorCodeMsg[code]||leanCloudErrorCodeMsg.unknown
 }
+function logIn(email, password, errEl) {
+    AV.User.logIn(email, password).then(function (loginedUser) {
+        errEl.textContent = ''
+        window.location.href = 'result.html'
+    }, function (error) {
+        errEl.textContent = getErrorMessage(error)
+    });
+}
+function signUp(username, password, email, errEl) {
+    var user = new AV.User()
+    user.setUsername(username)
+    user.set('nickname', username)
+    user.setPassword(password)
+    user.setEmail(email)
+    user.signUp().then(function (loginedUser) {
+        localStorage.setItem('defaultTabNav', 'sign-in-nav')
+        errEl.textContent = ''
+        window.location.href = 'result.html'
+    }, function (error) {
+        errEl.textContent = getErrorMessage(error)
+    })
+}
+
 // const appId = '1KeILo7moWLtykR7uCWTcXUJ-gzGzoHsz';
 // const appKey = '9wRLsRPHHN4f26bBoKY10W0l';
 // AV.init({ appId, appKey });
@@ -45,30 +68,6 @@ signUpForm.addEventListener('submit', function (e) {
     var errEl = document.querySelector('#sign-up-form span.error')
     // signUp(username,password,email,errEl)
 })
-
-function logIn(email, password,errEl){
-    AV.User.logIn(email, password).then(function (loginedUser) {
-        errEl.textContent = ''
-        window.location.href = 'result.html'
-     }, function (error) {
-        errEl.textContent = getErrorMessage(error)
-     });
-}
-function signUp (username,password,email,errEl) {
-    var user = new AV.User()
-    user.setUsername(username)
-    user.set('nickname', username)
-    user.setPassword(password)
-    user.setEmail(email)
-    user.signUp().then(function (loginedUser) {
-        localStorage.setItem('defaultTabNav', 'sign-in-nav')
-        errEl.textContent = ''
-        window.location.href = 'result.html'
-    }, function (error) {
-        errEl.textContent = getErrorMessage(error)
-    })
-}
-
 
 // input 下划线动画
 var allInput = document.querySelectorAll('input:not([type="submit"])')
